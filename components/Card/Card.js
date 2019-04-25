@@ -11,8 +11,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Button = _interopRequireDefault(require("../Button"));
 
-var _StatusMarker = _interopRequireDefault(require("../StatusMarker"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var Card = function Card(_ref) {
@@ -28,13 +26,10 @@ var Card = function Card(_ref) {
       isActive = _ref$isActive === void 0 ? false : _ref$isActive,
       headerContent = _ref.headerContent,
       onAction = _ref.onAction,
-      lockStatus = _ref.lockStatus,
-      statusMessage = _ref.statusMessage,
       isSelectable = _ref.isSelectable,
       _ref$style = _ref.style,
       style = _ref$style === void 0 ? {} : _ref$style,
       onClick = _ref.onClick;
-  var displayedLockStatus = lockStatus || 'open';
 
   var handleAction = function handleAction(id, e) {
     if (typeof onAction === 'function') {
@@ -55,10 +50,7 @@ var Card = function Card(_ref) {
       className: "media-content"
     }, _react["default"].createElement("h2", {
       className: "title"
-    }, title, lockStatus ? _react["default"].createElement(_StatusMarker["default"], {
-      lockStatus: lockStatus,
-      statusMessage: statusMessage
-    }) : null), subtitle && _react["default"].createElement("p", {
+    }, title), subtitle && _react["default"].createElement("p", {
       className: "subtitle"
     }, subtitle))), bodyContent && _react["default"].createElement("div", {
       className: "content"
@@ -68,7 +60,7 @@ var Card = function Card(_ref) {
   return _react["default"].createElement("div", {
     style: style,
     onClick: onClick,
-    className: "card is-lock-status-".concat(displayedLockStatus, " ").concat(isSelectable ? 'is-selectable' : '', " ").concat(isActive ? 'is-active' : '')
+    className: "card ".concat(isSelectable ? 'is-selectable' : '', " ").concat(isActive ? 'is-active' : '')
   }, headerContent && _react["default"].createElement("div", {
     className: "card-image"
   }, _react["default"].createElement("figure", {

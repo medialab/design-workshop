@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import StatusMarker from '../StatusMarker';
 
 const Card = ({
   title,
@@ -13,13 +12,10 @@ const Card = ({
   isActive = false,
   headerContent,
   onAction,
-  lockStatus,
-  statusMessage,
   isSelectable,
   style = {},
   onClick
 }) => {
-  const displayedLockStatus = lockStatus || 'open';
   const handleAction = (id, e) => {
     if (typeof onAction === 'function') {
       onAction(id, e);
@@ -39,7 +35,6 @@ const Card = ({
           <div className="media-content">
             <h2 className="title">
               {title}
-              {lockStatus ? <StatusMarker lockStatus={lockStatus} statusMessage={statusMessage} /> : null}
             </h2>
             {
                   subtitle &&
@@ -59,7 +54,7 @@ const Card = ({
       );
   };
   return (
-    <div style={style} onClick={onClick} className={`card is-lock-status-${displayedLockStatus} ${isSelectable ? 'is-selectable' : ''} ${isActive ? 'is-active' : ''}`}>
+    <div style={style} onClick={onClick} className={`card ${isSelectable ? 'is-selectable' : ''} ${isActive ? 'is-active' : ''}`}>
       {headerContent && <div className="card-image">
         <figure className="image">
           {headerContent}

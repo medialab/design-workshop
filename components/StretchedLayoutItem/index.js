@@ -3,11 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _StretchedLayoutItem["default"];
+  }
+});
 
 var _StretchedLayoutItem = _interopRequireDefault(require("./StretchedLayoutItem"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _default = _StretchedLayoutItem["default"];
-exports["default"] = _default;

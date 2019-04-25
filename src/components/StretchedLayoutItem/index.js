@@ -1,3 +1,1 @@
-import StretchedLayoutItem from './StretchedLayoutItem';
-
-export default StretchedLayoutItem;
+export default from './StretchedLayoutItem';

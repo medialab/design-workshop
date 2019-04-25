@@ -1,14 +1,41 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import {storiesOf} from '@storybook/react';
+import Md from 'react-markdown';
 
-import { Button, Welcome } from '@storybook/react/demo';
+import theme from '../src/themes/default/bulma.theme.scss';/* eslint no-unused-vars : 0*/
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+/**
+ * Documentation
+ */
+import introduction from '!!raw-loader!./documentation/Introduction.md';
+/**
+ * Layout
+ */
+import layoutsIntro from '!!raw-loader!./documentation/Layouts.md';
+import {
+  Simple,
+  DoubleConfig,
+  DoubleNav,
+  Triple
+} from './layouts';
+ /**
+ * Mockups
+ */
+import {
+  Landing
+} from './mockups/takoyaki';
 
-storiesOf('Takoyaki', module)
-  .add('Hello world', () => (
-    <div>Hello world</div>
+storiesOf('Documentation', module).add('Welcome to médialab design workshop', () => <Md source={introduction} />);
+
+storiesOf('Layouts', module)
+.add('Layouts rationale', () => <Md source={layoutsIntro} />)
+.add('Simple (workspace only)', () => <Simple />)
+.add('Double (workspace + configspace)', () => <DoubleConfig />)
+.add('Double (workspace + nav)', () => <DoubleNav />)
+.add('Triple (workspace + configspace + nav)', () => <Triple />);
+
+storiesOf('Mockups/Takoyaki', module)
+  .add('Landing', () => (
+    <Landing />
   ));

@@ -1,6 +1,7 @@
 // you can use this file to add your custom webpack plugins, loaders and anything you like.
 // This is just the basic way to add additional webpack configurations.
 // For more information refer the docs: https://storybook.js.org/configurations/custom-webpack-config
+const path = require('path');
 
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
@@ -13,6 +14,11 @@ module.exports = {
   module: {
     rules: [
       // add your custom rules.
+      {
+        test: /\.s?css$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        include: path.resolve(__dirname, '../'),
+      },
     ],
   },
 };

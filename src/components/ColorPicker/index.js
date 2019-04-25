@@ -1,3 +1,1 @@
-import ColorPicker from './ColorPicker';
-
-export default ColorPicker;
+export default from './ColorPicker';

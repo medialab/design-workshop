@@ -591,18 +591,6 @@ Object.defineProperty(exports, "withHelpersModifiers", {
     return _bloomer.withHelpersModifiers;
   }
 });
-Object.defineProperty(exports, "Navbar", {
-  enumerable: true,
-  get: function get() {
-    return _Navbar["default"];
-  }
-});
-Object.defineProperty(exports, "ModalCard", {
-  enumerable: true,
-  get: function get() {
-    return _ModalCard["default"];
-  }
-});
 Object.defineProperty(exports, "Dropdown", {
   enumerable: true,
   get: function get() {
@@ -621,12 +609,6 @@ Object.defineProperty(exports, "Button", {
     return _Button["default"];
   }
 });
-Object.defineProperty(exports, "StatusMarker", {
-  enumerable: true,
-  get: function get() {
-    return _StatusMarker["default"];
-  }
-});
 Object.defineProperty(exports, "HelpPin", {
   enumerable: true,
   get: function get() {
@@ -639,34 +621,10 @@ Object.defineProperty(exports, "DropZone", {
     return _DropZone["default"];
   }
 });
-Object.defineProperty(exports, "Image", {
-  enumerable: true,
-  get: function get() {
-    return _Image["default"];
-  }
-});
-Object.defineProperty(exports, "Icon", {
-  enumerable: true,
-  get: function get() {
-    return _Icon["default"];
-  }
-});
 Object.defineProperty(exports, "Collapsable", {
   enumerable: true,
   get: function get() {
     return _Collapsable["default"];
-  }
-});
-Object.defineProperty(exports, "Column", {
-  enumerable: true,
-  get: function get() {
-    return _Column["default"];
-  }
-});
-Object.defineProperty(exports, "Columns", {
-  enumerable: true,
-  get: function get() {
-    return _Columns["default"];
   }
 });
 Object.defineProperty(exports, "CodeEditor", {
@@ -681,24 +639,6 @@ Object.defineProperty(exports, "ColorPicker", {
     return _ColorPicker["default"];
   }
 });
-Object.defineProperty(exports, "BigSelect", {
-  enumerable: true,
-  get: function get() {
-    return _BigSelect["default"];
-  }
-});
-Object.defineProperty(exports, "Box", {
-  enumerable: true,
-  get: function get() {
-    return _Box["default"];
-  }
-});
-Object.defineProperty(exports, "Grid", {
-  enumerable: true,
-  get: function get() {
-    return _Grid["default"];
-  }
-});
 Object.defineProperty(exports, "StretchedLayoutContainer", {
   enumerable: true,
   get: function get() {
@@ -711,30 +651,80 @@ Object.defineProperty(exports, "StretchedLayoutItem", {
     return _StretchedLayoutItem["default"];
   }
 });
-Object.defineProperty(exports, "AbsoluteContainer", {
+Object.defineProperty(exports, "Icon", {
   enumerable: true,
   get: function get() {
-    return _AbsoluteContainer["default"];
+    return _Icon["default"];
   }
 });
-Object.defineProperty(exports, "FlexContainer", {
+Object.defineProperty(exports, "LayoutContainer", {
   enumerable: true,
   get: function get() {
-    return _FlexContainer["default"];
+    return _LayoutContainer["default"];
   }
 });
-Object.defineProperty(exports, "Range", {
+Object.defineProperty(exports, "LayoutWrapper", {
   enumerable: true,
   get: function get() {
-    return _Range["default"];
+    return _LayoutWrapper["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutContent", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutContent["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutContentColumn", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutContentColumn["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutFooter", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutFooter["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutFooterColumn", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutFooterColumn["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutHeaderContainer", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutHeaderContainer["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutHeaderContent", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutHeaderContent["default"];
+  }
+});
+Object.defineProperty(exports, "AppTitle", {
+  enumerable: true,
+  get: function get() {
+    return _AppTitle["default"];
+  }
+});
+Object.defineProperty(exports, "RunningTitle", {
+  enumerable: true,
+  get: function get() {
+    return _RunningTitle["default"];
+  }
+});
+Object.defineProperty(exports, "LayoutNav", {
+  enumerable: true,
+  get: function get() {
+    return _LayoutNav["default"];
   }
 });
 
 var _bloomer = require("bloomer");
-
-var _Navbar = _interopRequireDefault(require("./Navbar"));
-
-var _ModalCard = _interopRequireDefault(require("./ModalCard"));
 
 var _Dropdown = _interopRequireDefault(require("./Dropdown"));
 
@@ -742,40 +732,42 @@ var _Card = _interopRequireDefault(require("./Card"));
 
 var _Button = _interopRequireDefault(require("./Button"));
 
-var _StatusMarker = _interopRequireDefault(require("./StatusMarker"));
-
 var _HelpPin = _interopRequireDefault(require("./HelpPin"));
 
 var _DropZone = _interopRequireDefault(require("./DropZone"));
 
-var _Image = _interopRequireDefault(require("./Image"));
-
-var _Icon = _interopRequireDefault(require("./Icon"));
-
 var _Collapsable = _interopRequireDefault(require("./Collapsable"));
-
-var _Column = _interopRequireDefault(require("./Column"));
-
-var _Columns = _interopRequireDefault(require("./Columns"));
 
 var _CodeEditor = _interopRequireDefault(require("./CodeEditor"));
 
 var _ColorPicker = _interopRequireDefault(require("./ColorPicker"));
 
-var _BigSelect = _interopRequireDefault(require("./BigSelect"));
-
-var _Box = _interopRequireDefault(require("./Box"));
-
-var _Grid = _interopRequireDefault(require("./Grid"));
-
 var _StretchedLayoutContainer = _interopRequireDefault(require("./StretchedLayoutContainer"));
 
 var _StretchedLayoutItem = _interopRequireDefault(require("./StretchedLayoutItem"));
 
-var _AbsoluteContainer = _interopRequireDefault(require("./AbsoluteContainer"));
+var _Icon = _interopRequireDefault(require("./Icon"));
 
-var _FlexContainer = _interopRequireDefault(require("./FlexContainer"));
+var _LayoutContainer = _interopRequireDefault(require("./LayoutContainer"));
 
-var _Range = _interopRequireDefault(require("./Range"));
+var _LayoutWrapper = _interopRequireDefault(require("./LayoutWrapper"));
+
+var _LayoutContent = _interopRequireDefault(require("./LayoutContent"));
+
+var _LayoutContentColumn = _interopRequireDefault(require("./LayoutContentColumn"));
+
+var _LayoutFooter = _interopRequireDefault(require("./LayoutFooter"));
+
+var _LayoutFooterColumn = _interopRequireDefault(require("./LayoutFooterColumn"));
+
+var _LayoutHeaderContainer = _interopRequireDefault(require("./LayoutHeaderContainer"));
+
+var _LayoutHeaderContent = _interopRequireDefault(require("./LayoutHeaderContent"));
+
+var _AppTitle = _interopRequireDefault(require("./AppTitle"));
+
+var _RunningTitle = _interopRequireDefault(require("./RunningTitle"));
+
+var _LayoutNav = _interopRequireDefault(require("./LayoutNav"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

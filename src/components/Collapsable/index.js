@@ -1,3 +1,1 @@
-import Collapsable from './Collapsable';
-
-export default Collapsable;
+export default from './Collapsable';

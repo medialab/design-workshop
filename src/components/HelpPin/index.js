@@ -1,3 +1,1 @@
-import HelpPin from './HelpPin';
-
-export default HelpPin;
+export default from './HelpPin';

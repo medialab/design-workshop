@@ -6397,3 +6397,123 @@ label.panel-block {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
+
+.layout-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch; }
+  .layout-wrapper .layout-header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; }
+  .layout-wrapper .layout-header-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    max-width: 800px;
+    min-width: 800px; }
+  .layout-wrapper .layout-container {
+    overflow: auto;
+    flex: 1; }
+  .layout-wrapper .layout-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    min-height: 100vh; }
+    .layout-wrapper .layout-content .layout-content-column {
+      flex: 1; }
+  .layout-wrapper .layout-content-column,
+  .layout-wrapper .layout-footer-column {
+    max-width: 800px; }
+  .layout-wrapper .layout-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; }
+    .layout-wrapper .layout-footer .layout-footer-column {
+      flex: 1; }
+  .layout-wrapper.has-config .layout-header-content, .layout-wrapper.has-nav .layout-header-content {
+    max-width: unset;
+    min-width: unset;
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch; }
+    .layout-wrapper.has-config .layout-header-content .app-title, .layout-wrapper.has-nav .layout-header-content .app-title {
+      flex: 1;
+      text-align: right; }
+    .layout-wrapper.has-config .layout-header-content .running-title, .layout-wrapper.has-nav .layout-header-content .running-title {
+      flex: 2; }
+  .layout-wrapper.has-config .layout-content .layout-content-column.is-config {
+    flex: 1;
+    text-align: right; }
+  .layout-wrapper.has-config .layout-content .layout-content-column.is-workspace {
+    flex: 2; }
+  .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary {
+    flex: 1;
+    text-align: right; }
+  .layout-wrapper.has-config .layout-footer .layout-footer-column.is-primary {
+    flex: 2; }
+  .layout-wrapper.has-nav .layout-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    overflow: hidden; }
+    .layout-wrapper.has-nav .layout-container .layout-nav {
+      flex: 1; }
+    .layout-wrapper.has-nav .layout-container > .layout-content {
+      display: block;
+      overflow: auto;
+      flex: 2; }
+  .layout-wrapper.has-nav .layout-nav {
+    flex: 1;
+    text-align: right; }
+  .layout-wrapper.has-nav .layout-header-container .app-title {
+    flex: 1;
+    text-align: right; }
+  .layout-wrapper.has-nav .layout-header-container .running-title {
+    flex: 2; }
+  .layout-wrapper.has-nav.has-config .layout-header-container .running-title {
+    flex: 4; }
+  .layout-wrapper.has-nav.has-config .layout-container .nav {
+    flex: 1; }
+  .layout-wrapper.has-nav.has-config .layout-container > .layout-content {
+    flex: 4; }
+  .layout-wrapper.has-nav.has-config .layout-container .layout-content-column.is-workspace {
+    flex: 3; }
+  .layout-wrapper.has-nav.has-config .layout-container .layout-content-column.is-config {
+    text-align: left; }
+  .layout-wrapper.has-nav.has-config .layout-container .layout-footer-column.is-primary {
+    flex: 3; }
+  .layout-wrapper.has-nav.has-config .layout-container .layout-footer-column.is-secondary {
+    text-align: left; }
+  .layout-wrapper .nav-collapse-container,
+  .layout-wrapper #nav-collapse {
+    display: none; }
+  @media screen and (max-width: 769px) {
+    .layout-wrapper .layout-header-content {
+      min-width: unset;
+      max-width: unset;
+      width: 100%; }
+    .layout-wrapper.has-config .layout-header-content {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start; }
+      .layout-wrapper.has-config .layout-header-content .app-title {
+        text-align: left; }
+    .layout-wrapper.has-config .layout-content,
+    .layout-wrapper.has-config .layout-footer {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start; }
+    .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary,
+    .layout-wrapper.has-config .layout-content .layout-content-column.is-config {
+      text-align: left; }
+    .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary {
+      order: 2; } }
+
+.layout-nav {
+  position: relative; }

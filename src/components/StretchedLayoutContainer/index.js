@@ -1,3 +1,2 @@
-import StretchedLayoutContainer from './StretchedLayoutContainer';
+export default from './StretchedLayoutContainer';
 
-export default StretchedLayoutContainer;
