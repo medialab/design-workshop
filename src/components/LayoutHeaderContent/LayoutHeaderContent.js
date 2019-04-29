@@ -6,8 +6,8 @@ export default ({
     style = {}
 }) => {
     return (
-      <header style={style} className={`layout-header-content ${className}`}>
+      <div style={style} className={`layout-header-content ${className}`}>
         {children}
-      </header>
+      </div>
     );
 };

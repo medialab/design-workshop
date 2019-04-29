@@ -16,15 +16,15 @@ import {
 
 export default () => (
   <LayoutWrapper hasConfig>
-    <LayoutHeaderContainer style={{background: 'yellow'}}>
+    <LayoutHeaderContainer>
       <LayoutHeaderContent>
         <AppTitle>App name</AppTitle>
         <RunningTitle>Running title</RunningTitle>
       </LayoutHeaderContent>
     </LayoutHeaderContainer>
-    <LayoutContainer style={{background: 'lightgreen'}}>
+    <LayoutContainer>
       <LayoutContent>
-        <LayoutContentColumn isConfig style={{background: 'lightgrey'}}>
+        <LayoutContentColumn isConfig>
           <h3>Config space</h3>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget viverra nisl, nec imperdiet justo. In vitae turpis non nunc venenatis faucibus. Phasellus cursus finibus enim. Morbi commodo, lorem sollicitudin blandit maximus, tortor felis pretium nulla, eget ullamcorper tortor leo vehicula libero. In vitae sollicitudin mi, nec accumsan erat. Morbi viverra sem nunc, egestas consectetur turpis malesuada sed. Nulla dictum mi in tellus dapibus, sed finibus risus aliquet. Duis tempus turpis eu magna mollis malesuada. Nulla porttitor, massa lacinia rutrum bibendum, lectus nibh scelerisque neque, ut euismod dolor libero eget arcu. Morbi a nisi a lorem aliquet placerat ac eu urna. Praesent eget elit vulputate, tempus sem sed, consequat lacus. Morbi ullamcorper, odio pretium consectetur fermentum, lectus mi vehicula odio, id tempor felis sem in nunc. Nullam odio sapien, rutrum quis leo eu, convallis viverra leo. Nunc in lectus pretium, ultricies justo vel, elementum quam.
         </LayoutContentColumn>
@@ -43,7 +43,7 @@ Integer a metus sit amet purus aliquet facilisis. Class aptent taciti sociosqu a
 Nam aliquam quis justo vel ullamcorper. Mauris sed volutpat arcu, molestie condimentum nulla. Integer et volutpat nibh, eget rhoncus erat. Sed cursus finibus velit vel sodales. Suspendisse bibendum luctus purus, eu porttitor sem vulputate accumsan. Phasellus ullamcorper vitae augue et blandit. Sed felis ipsum, consequat et lacus sit amet, tincidunt ornare leo. Sed rutrum ipsum id dui pretium, ut luctus velit posuere. Proin condimentum ullamcorper hendrerit. Fusce nec laoreet lacus. Nunc auctor massa ac velit blandit convallis. Quisque maximus hendrerit augue, auctor viverra enim sodales vitae. Quisque at arcu nec massa venenatis rhoncus. Fusce quis justo dictum, suscipit lacus at, fermentum risus.
         </LayoutContentColumn>
       </LayoutContent>
-      <LayoutFooter style={{background: 'pink'}}>
+      <LayoutFooter>
         <LayoutFooterColumn isSecondary>
           <h3>Footer secondary</h3>
         </LayoutFooterColumn>

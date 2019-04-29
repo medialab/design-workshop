@@ -1,7 +1,15 @@
 // // Overrides
 // @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
-$content-max-width: 800px;
+
+ /**
+  * ROOT STYLING
+  */
+  :root{
+    font-size: 18px;
+    line-height: 26px;
+    text-rendering: optimizeLegibility;
+    }
 
 @mixin flex($direction, $justify) {
 	display: flex;
@@ -23,11 +31,17 @@ $content-max-width: 800px;
 
     .layout-header-container{
         @include flex(row, center);
+        background: $background;
     }
     .layout-header-content{
         @include flex(row, space-between);
-        max-width: $content-max-width;
-        min-width: $content-max-width;
+        width: 100%;
+        .app-title,
+        .running-title{
+            padding-top: $gutter-medium;
+            padding-left: $gutter-small;
+            padding-right: $gutter-small;
+        }
     }
 
     .layout-container{
@@ -36,40 +50,66 @@ $content-max-width: 800px;
     }
 
     .layout-content{
-        @include flex(row, center);
+        @include flex(row, stretch);
         min-height: 100vh;
         .layout-content-column{
+            padding-top: $gutter-large;
+            padding-bottom: $gutter-large;
+            padding-left: $gutter-small;
+            padding-right: $gutter-small;
+            box-sizing: content-box;
             flex: 1;
         }
     }
 
-    .layout-content-column,
-    .layout-footer-column{
-        max-width: $content-max-width;
-    }
+    // .layout-content-column,
+    // .layout-footer-column{
+    //     max-width: $content-max-width;
+    // }
 
     .layout-footer{
+        background: $background;
+        padding-top: $gutter-medium;
         @include flex(row, center);
+        color: $text-secondary;
+        font-size: $size-7;
         .layout-footer-column{
             flex: 1;
+            padding-left: $gutter-small;
+            padding-right: $gutter-small;
         }
     }
 
     &.has-config,&.has-nav{
+        .layout-header-container{
+            background: transparent;
+        }
         .layout-header-content{
-            max-width: unset;
-            min-width: unset;
+            
             flex: 1;
             @include flex(row, stretch);
 
             .app-title{
                 flex: 1;
                 text-align: right;
+                min-width: 33.33333%;
+                min-width: 33.33334%;
             }
             .running-title{
                 flex: 2;
+                background: $background;
             }
         }
+        .layout-content-column.is-workspace{
+            background: $background;
+        }
+        .layout-footer{
+            .layout-footer-column.is-secondary{
+                min-width: 33.33333%;
+                max-width: 33.33334%;
+            }
+        }
+        
     }
 
     &.has-config{
@@ -77,7 +117,7 @@ $content-max-width: 800px;
             .layout-content-column{
                 &.is-config{
                     flex: 1;
-                    text-align: right;
+                    text-align: right;               
                 }
                 &.is-workspace{
                     flex: 2;
@@ -104,6 +144,10 @@ $content-max-width: 800px;
 
             .layout-nav{
                 flex: 1;
+                // min-width: 33.53333%;
+                // max-width: 33.53334%;
+                padding-right: $gutter-small;
+                padding-top: $gutter-large;
             }
 
             > .layout-content{
@@ -111,6 +155,9 @@ $content-max-width: 800px;
                 overflow: auto;
                 flex: 2;
             }
+            // .layout-content-column.is-workspace{
+            //     padding-left: $gutter-small;
+            // }
 
         }
         .layout-nav{
@@ -135,8 +182,10 @@ $content-max-width: 800px;
             }
         }
         .layout-container{
-            .nav{
+            .layout-nav{
                 flex: 1;
+                min-width: 33.33333%;
+                max-width: 33.33334%;
             }
 
             > .layout-content{
@@ -147,6 +196,7 @@ $content-max-width: 800px;
             }
             .layout-content-column.is-config{
                 text-align: left;
+                background: $background;
             }
 
             .layout-footer-column.is-primary{
@@ -173,13 +223,28 @@ $content-max-width: 800px;
            width: 100%;
         }
 
+        &.has-nav{
+            .layout-header-content .app-title,
+            .layout-container .layout-nav,
+            &.has-config .layout-container .layout-nav{
+                max-width: 20%;
+                min-width: 20.0001%;
+            }
+        }
+
         &.has-config{
-            .layout-header-content{
-                @include flex(column, flex-start);
-                .app-title{
-                    text-align: left;
+            &:not(.has-nav) {
+                .layout-header-content{
+                    @include flex(column, flex-start);
+                    .app-title{
+                        text-align: left;
+                    }
+                    .running-title{
+                        background: transparent;
+                    }
                 }
             }
+            
             .layout-content,
             .layout-footer{
                 @include flex(column, flex-start);
@@ -188,6 +253,8 @@ $content-max-width: 800px;
             .layout-footer .layout-footer-column.is-secondary,
             .layout-content .layout-content-column.is-config{
                 text-align: left;
+                // max-width: unset;
+                // padding-left: $gutter-small;
             }
             .layout-footer .layout-footer-column.is-secondary{
                 order: 2;
@@ -200,845 +267,59 @@ $content-max-width: 800px;
 .layout-nav{
     position: relative;
 }
-  
 
-// hr
-// {
-//     background-color: lighten($grey-lighter, 5);
-// }
-
-// .button,
-// .control.has-icons-left .icon,
-// .control.has-icons-right .icon,
-// .input,
-// .pagination-ellipsis,
-// .pagination-link,
-// .pagination-next,
-// .pagination-previous,
-// .select,
-// .select select,
-// .textarea
-// {
-//     height: 2.5em;
-// }
-
-// .content
-// {
-//     letter-spacing: .04em;
-
-//     figure
-//     {
-//         text-align: left;
-//     }
-
-//     table{
-//         padding: 0;
-//         padding-top: 1rem;
-//     }
-// }
-
-// .box
-// {
-//     box-shadow: $shadow;
-// }
-
-// .button
-// {
-//     font-weight: 500;
-
-//     position: relative;
-
-//     overflow: hidden;
-
-//     transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),
-//     background-color 300ms ease;
-//     transform: translate3d(0, 0, 0);
-//     text-transform: uppercase;
-
-//     border-radius: 3px;
-//     box-shadow: $shadow;
-
-//     &.is-hovered,
-//     &:hover
-//     {
-//         border-color: transparent;
-//         background-color: darken($button-background-color, 5);
-//     }
-
-//     &.is-disabled
-//     {
-//         cursor: not-allowed;
-
-//         opacity: .3;
-//     }
-
-//     &.is-active,
-//     &:active
-//     {
-//         box-shadow: $shadow-large;
-//     }
-
-//     &.is-focused,
-//     &:focus
-//     {
-//         border-color: transparent;
-//     }
-
-//     @each $name, $pair in $colors
-//     {
-//         $color: nth($pair, 1);
-//         $color-invert: nth($pair, 2);
-
-//         &.is-#{$name}
-//         {
-//             &.is-hovered,
-//             &:hover
-//             {
-//                 background-color: darken($color, 5);
-//             }
-
-//             &.is-active,
-//             &:active
-//             {
-//                 box-shadow: $shadow-large;
-//             }
-//         }
-//     }
-
-//     &.is-text
-//     {
-//         box-shadow: none;
-//     }
-
-//     &:before
-//     {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-
-//         display: block;
-
-//         width: 100%;
-//         height: 100%;
-
-//         content: '';
-//         transition: transform .5s, opacity 1s;
-//         transform: scale(10, 10);
-//         pointer-events: none;
-
-//         opacity: 0;
-//         background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
-//         background-repeat: no-repeat;
-//         background-position: 50%;
-//     }
-
-//     &:active:before
-//     {
-//         transition: 0s;
-//         transform: scale(0, 0);
-
-//         opacity: .2;
-//     }
-// }
-
-// .icon
-// {
-//     &.is-clickable
-//     {
-//         pointer-events: auto !important;
-//     }
-//     &.custom-icon{
-//         img{
-//             max-width: 100%;
-//             max-height: 100%;
-//         }
-//     }
-// }
-
-// .input,
-// .textarea
-// {
-//     padding-right: 0;
-//     padding-left: 0;
-
-//     transition: all 300ms;
-
-//     border: none;
-//     box-shadow: inset 0 -1px 0 $grey-lighter;
-
-//     &.is-small
-//     {
-//         border-radius: 0;
-//     }
-
-//     &.is-active,
-//     &.is-focused,
-//     &:active,
-//     &:focus
-//     {
-//         box-shadow: inset 0 -2px 0 $input-focus-border-color;
-//     }
-//     @each $name, $pair in $colors
-//     {
-//         $color: nth($pair, 1);
-
-//         &.is-#{$name}
-//         {
-//             box-shadow: inset 0 -1px 0 $color;
-
-//             &.is-active,
-//             &.is-focused,
-//             &:active,
-//             &:focus
-//             {
-//                 box-shadow: inset 0 -2px 0 $color;
-//             }
-//         }
-//     }
-
-//     &.is-disabled,
-//     &[disabled],
-//     &[readonly]
-//     {
-//         cursor: not-allowed;
-
-//         border-bottom: 1px dotted $grey-lighter;
-//     }
-// }
-
-// // .textarea {
-// //   box-shadow: none;
-// // }
-
-// .select select
-// {
-//     transition: all 300ms;
-
-//     border: none;
-//     border-radius: 0;
-//     box-shadow: inset 0 -1px 0 $grey-lighter;
-
-//     &.is-active,
-//     &.is-focused,
-//     &:active,
-//     &:focus
-//     {
-//         box-shadow: inset 0 -2px 0 $input-focus-border-color;
-//     }
-// }
-
-// .control
-// {
-//     &.has-addons
-//     {
-//         .button,
-//         .input,
-//         .select
-//         {
-//             &:first-child,
-//             &:last-child
-//             {
-//                 border-radius: 0;
-
-//                 select
-//                 {
-//                     border-radius: 0;
-//                 }
-//             }
-//         }
-
-//         .button
-//         {
-//             box-shadow: none;
-//         }
-//     }
-// }
-
-// .progress
-// {
-//     height: $size-7;
-
-//     border-radius: $radius;
-
-//     &.is-small
-//     {
-//         height: .5rem;
-//     }
-// }
-
-// .card
-// {
-//     box-shadow: $shadow;
-
-//     transition: box-shadow .5s ease;
-
-//     &:hover,
-//     &.active{
-//      box-shadow: $shadow-large;
-//     }
-
-//     .card-header
-//     {
-//         box-shadow: none;
-//     }
-
-//     .card-content
-//     {
-//         word-break: break-all;
-//     }
-
-//     .aside-actions{
-//         .button{
-//             justify-content: flex-start;
-//         }
-//     }
-
-//     .card-footer,
-//     .card-footer-item
-//     {
-//         font-weight: 500;
-
-//         text-transform: uppercase;
-
-//         border: 0;
-//     }
-
-//     &.is-selectable
-//     {
-//         cursor: pointer;
-//     }
-
-//     &.is-active
-//     {
-//         background: $primary;
-//         .card-content,
-//         .card-header,
-//         .title,
-//         .subtitle
-//         {
-//             color: white;
-//         }
-//     }
-// }
-
-// .menu
-// {
-//     .menu-list
-//     {
-//         a
-//         {
-//             padding: $size-7;
-
-//             border-radius: $radius;
-
-//             &.is-active
-//             {
-//                 color: $link;
-//                 background-color: transparent;
-//             }
-//         }
-//     }
-// }
-
-// .notification
-// {
-//     box-shadow: $shadow;
-//     @each $name, $pair in $colors
-//     {
-//         $color: nth($pair, 1);
-//         $color-invert: nth($pair, 2);
-
-//         &.is-#{$name}
-//         {
-//             a:not(.button)
-//             {
-//                 text-decoration: underline;
-
-//                 color: $color-invert;
-//             }
-//         }
-//     }
-// }
-
-// .modal
-// {
-//     display: flex;
-//     opacity: 0;
-//     pointer-events: none;
-
-//     transition: all .5s ease;
-//     .modal-background
-//     {
-//         background-color: rgba(0,0,0,0);
-//         transition: all .5s ease;
-//     }
-
-//     .modal-card
-//     {
-//         box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2),
-//         0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
-//         max-height: 0;
-//         overflow: hidden;
-//         transition: all .5s ease;
-//         opacity: 0;
-//     }
-//     &.is-active{
-//         opacity: 1;
-//         pointer-events: all;
-//         .modal-card{
-//             max-height: 100%;
-//             opacity: 1;
-//         }
-
-//         .modal-background
-//         {
-//             background-color: rgba($black, .6);
-//         }
-//     }
-// }
-
-// .hero .navbar
-// {
-//     background: $background;
-// }
-
-// .navbar
-// {
-
-//     @include touch
-//     {
-//         .navbar-menu
-//         {
-//             background-color: inherit;
-//         }
-//     }
-//     // &:not(.is-transparent)
-//     // {
-//     //     box-shadow: $shadow;
-//     // }
-
-//     .has-dropdown .navbar-item
-//     {
-//         @include desktop
-//         {
-//             color: $text;
-//         }
-//     }
-
-//     &.with-large-header{
-//         > .container{
-//             margin-left: 1rem;
-//             margin-right: 1rem;
-//             max-width: unset;
-//             @media screen and (max-width: 1024px) {
-//                 margin-left: 0;
-//             }
-//         }
-        
-//     }
-
-//     @each $name, $pair in $colors
-//     {
-//         $color: nth($pair, 1);
-//         $color-invert: nth($pair, 2);
-
-//         &.is-#{$name}
-//         {
-//             @include touch
-//             {
-//                 .navbar-menu
-//                 {
-//                     .navbar-item,
-//                     .navbar-link
-//                     {
-//                         color: $color-invert;
-//                         &.is-active
-//                         {
-//                             background-color: darken($color, 5);
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-
-//     .breadcrumb
-//     {
-//         margin-bottom: 0;
-//     }
-// }
-
-// .tabs
-// {
-//     .is-active a
-//     {
-//         box-shadow: inset 0 -1px 0 $link;
-//     }
-
-//     &.is-boxed
-//     {
-//         .is-active a
-//         {
-//             border-top: 0;
-//             box-shadow: inset 0 2px 0 $link;
-//         }
-//     }
-// }
-
-// .panel
-// {
-//     box-shadow: $shadow;
-
-//     .panel-block,
-//     .panel-heading,
-//     .panel-tabs
-//     {
-//         padding: $size-7;
-
-//         border: none;
-//         border-radius: $radius;
-//     }
-
-//     .panel-block.is-active
-//     {
-//         color: $primary;
-//     }
-
-//     .panel-tabs
-//     {
-//         a:hover
-//         {
-//             color: $link-hover;
-//             border-color: $link-hover;
-//         }
-//     }
-// }
-
-// .absolute-container{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-// }
-
-// .flex-container{
-//     display: flex;
-//     flex-flow: row-nowrap;
-//     justify-content: stretch;
-//     align-items: stretch;
-// }
-
-// /**
-//  * CUSTOMIZATION
-//  */
-// @media screen and (min-width: 1088px)
-// {
-//     a.navbar-item.is-active:not(:hover),
-//     .navbar-link.is-active:not(:hover)
-//     {
-//         background-color: #fafafa;
-//     }
-// }
-
-// /**
-//  * NEW MODIFIERS
-//  */
-// .is-rounded
-// {
-//     border-radius: 50%;
-// }
-// .is-rounded img
-// {
-//     border-radius: 50%;
-// }
-
-// .is-wrapper
-// {
-//     position: relative;
-
-//     width: 100%;
-//     height: 100%;
-// }
-// .is-clickable
-// {
-//     cursor: pointer;
-// }
-
-// .columns
-// {
-//     &.is-fullheight
-//     {
-//         // min-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
-//         // max-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
-//         display: flex;
-//         flex-direction: row;
-
-//         min-height: calc(100vh - #{$navbar-height});
-//         max-height: calc(100vh - #{$navbar-height});
-
-//         justify-content: stretch;
-//          > .column
-//         {
-//             overflow-y: auto;
-//         }
-//     }
-// }
-
-// .box.is-active
-// {
-//     color: $background;
-//     background: $primary;
-// }
-
-// .tag
-// {
-//     &.is-rounded
-//     {
-//         border-radius: 1em;
-//     }
-// }
-
-// .dropdown
-// {
-//     .dropdown-menu
-//     {
-//         position: fixed;
-//         z-index: 999;
-
-//         overflow: auto;
-
-//         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-//     }
-
-//     .dropdown-background
-//     {
-//         position: fixed;
-//         z-index: 888;
-//         top: 0;
-//         left: 0;
-
-//         width: 100%;
-//         height: 100%;
-
-//         background: rgba(0,0,0,.05);
-//     }
-//     &.is-fullwidth {
-//         width: 100%;
-//         .dropdown-bind-menu-ref, .dropdown-bind-trigger-ref, .dropdown-trigger.is-fullwidth {
-//             width: 100%;            
-//         }
-//     }
-//     .svg-inline--fa {
-//         margin-left: 5px;
-//     }
-//     .button.is-fullwidth {
-//         justify-content: left;
-//         .svg-inline--fa {
-//             position: absolute;
-//             right: 15px;
-//         }
-//     }
-// }
-
-// .tabs.is-boxed a
-// {
-//     border: none;
-// }
-
-// .tabs ul
-// {
-//     border: none;
-// }
-
-// .control
-// {
-//     margin-bottom: 1rem;
-// }
-
-// /**
-//  * NEW COMPONENTS
-//  */
-
-
-// .stretched-layout-container
-// {
-//     display: flex;
-//     overflow: hidden;
-
-//     align-items: stretch;
-
-//     &.is-overflow-visible
-//     {
-//         overflow: visible;
-//     }
-
-//     &.is-direction-vertical
-//     {
-//         flex-flow: column nowrap;
-//     }
-//     &.is-direction-horizontal
-//     {
-//         flex-flow: row nowrap;
-//         &.is-fluid
-//         {
-//             @include mobile
-//             {
-//                 overflow: auto;
-//                 flex-direction: column;
-//             }
-//         }
-//     }
-//     &.is-absolute
-//     {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-
-//         width: 100%;
-//         height: 100%;
-//     }
-//     &.is-flowing
-//     {
-//         overflow: auto;
-//         &.is-fluid
-//         {
-//             @include mobile
-//             {
-//                 overflow: visible;
-//             }
-//         }
-//     }
-// }
-
-// .stretched-layout-item
-// {
-//     position: relative;
-//     &.is-flowing
-//     {
-//         overflow: auto;
-//         &.is-fluid
-//         {
-//             @include mobile
-//             {
-//                 overflow: visible;
-//             }
-//         }
-//     }
-// }
-
-// .color-picker-container
-// {
-//     z-index: 900;
-// }
-
-// .color-picker--color-notification {
-//     width: 7px;
-//     height: 7px;
-//     position: absolute;
-//     right: 10px;
-//     bottom: 10px;
-//     border-radius: 50%;
-// }
-
-// .collapsable
-// {
-//     overflow: hidden;
-
-//     max-height: 30rem;
-
-//     transition: all $transition-medium ease;
-//     &.is-collapsed
-//     {
-//         max-height: 0;
-//     }
-// }
-// .status-marker
-// {
-//     position: relative;
-//     transition: color .5s ease;
-//     // height: .5em;
-//     // position: relative;
-//     // border-radius: 50%;
-
-//     width: 1.2em;
-//     font-size: 1.5em;
-//     vertical-align: middle;
-//     margin: 0;
-//     padding: 0;
-//     line-height: 0;
-//     &.is-lock-status-open
-//     {
-//         color: $light;
-//     }
-//     &.is-lock-status-active
-//     {
-//         color: $turquoise;
-//     }
-//     &.is-lock-status-locked
-//     {
-//         color: $blue;
-//     }
-//     &.is-lock-status-asked
-//     {
-//         color: $yellow;
-//     }
-//     &.is-lock-status-idle
-//     {
-//         color: $yellow;
-//     }
-// }
-
-// .drop-zone
-// {
-//     /*
-//    * root component
-//    */
-//     position: relative;
-
-//     display: flex;
-
-//     width: 100%;// todo: parametrize that
-//     min-height: 10rem;
-//     padding: 1rem;
-
-//     text-align: center;
-
-//     border: 1px dashed $primary;// todo: parametrize that
-
-//     align-items: center;
-//     flex-flow: row nowrap;
-
-//     .caption-wrapper
-//     {
-//         display: flex;
-
-//         align-items: center;
-//         flex-flow: row nowrap;
-//         flex: 1;
-
-
-
-//         .caption-container
-//         {
-//             font-size: 1rem;
-//             font-style: italic;
-
-//             display: flex;
-
-//             align-items: center;
-//             flex: 1;
-//             flex-flow: column nowrap;
-//         }
-//     }
-// }
-
-
-// .help-pin{
-//     font-size: .8em;
-// }
-
-// .dropdown-item{
-//     max-wdidth: 100%;
-//     overflow-x: auto;
-// }
+.app-title{
+    color: $red;
+    font-size: $size-5;
+    font-weight: $bold-weight;
+    cursor: pointer;
+}
+
+.running-title{
+  font-size: $size-5;
+}
+
+
+.button{
+    justify-content: flex-start;
+    height: $size-3;
+    min-width: $size-6 * 10;
+ //    max-width: $size-6 * 10;
+    font-size: $size-7;
+    border-radius: 0;
+    align-items: flex-start;
+ 
+ 
+ flex-flow: column nowrap;
+ 
+ justify-content: center;
+    border: none;
+    &:active{
+        border: none;
+    }
+ 
+    background: white;
+    border: 1px solid $background;
+ 
+    padding: 0;
+    padding-left: $gutter-medium;
+    padding-right: $gutter-medium;
+ //    height: $size-3;
+ 
+ 
+    &:hover{
+        background: rgba(244,244,244, 0.5);
+        border: 1px solid $background;
+ 
+        transition : background .5s ease;
+    }
+    color: $info;
+ 
+    &.is-primary{
+     font-size: $size-6;
+     font-weight: $bold-weight;
+         &.is-bordered{
+             border: 1px solid $background;
+         }
+    }
+ }

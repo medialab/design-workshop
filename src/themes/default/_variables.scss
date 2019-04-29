@@ -18,6 +18,12 @@
 // // $red: #F44336;
 // $red: #E21B17;
 
+$red : #f7323f;
+$background: #f2f2f2;
+$text: #181c1c;
+$text-secondary: #555858;
+$primary: $text;
+$info:#7F7F7F; 
 // // $primary: #3F51B5 !default;
 // $primary: #00a99d !default;
 // // $link: #237296;
@@ -28,6 +34,7 @@
 // $background: white;
 
 // $family-sans-serif: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-sans-serif:  "Helvetica", sans-serif;
 // $title-weight: 400;
 // $title-weight-bold: 500;
 
@@ -52,3 +59,14 @@
 // $transition-short: 100ms;
 // $transition-medium: 500ms;
 // $transition-long: 1000ms;
+$content-max-width: 800px;
+
+
+$bold-weight: 600;
+$black-weight: 800;
+$size-8 : 0.5rem;
+$size-7bis : 0.77rem;
+
+$gutter-small : 0.25rem;
+$gutter-medium : 0.50rem;
+$gutter-large : 1rem;
