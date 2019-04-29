@@ -5,15 +5,15 @@ import {
     LayoutContainer,
     LayoutFooter,
     LayoutFooterColumn,
-    DropZone,
     LayoutContent,
     LayoutContentColumn,
     LayoutHeader,
     AppTitle,
     RunningTitle,
-    Content,
-    ButtonContainer,
-    Button
+    Button,
+    Field,
+    Label,
+    Control,
 } from '../../../src/components';
 
 
@@ -21,35 +21,25 @@ export default () => (
   <LayoutWrapper hasConfig>
     <LayoutHeader>
       <AppTitle>Takoyaki</AppTitle>
-      <RunningTitle>Choose a file</RunningTitle>
+      <RunningTitle>Select a dimension to work with</RunningTitle>
     </LayoutHeader>
     <LayoutContainer>
       <LayoutContent>
         <LayoutContentColumn isConfig>
-          <ButtonContainer><Button isColor="info">
-                Paste
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                Upload a file
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                From URL
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                Samples
-          </Button>
-          </ButtonContainer>
+          <Field>
+            <Label>
+                    View data as
+            </Label>
+            <Control>
+              <div className="buttons has-addons">
+                <Button isColor={'info'} >Table</Button>
+                <Button>Unique values</Button>
+              </div>
+            </Control>
+          </Field>
         </LayoutContentColumn>
         <LayoutContentColumn isWorkspace>
-          <DropZone>
-            <span className="tech-info">Drag and drop some files here, or click to select files</span>
-          </DropZone>
-          <Content isSize={'medium'}>
-            Copy and paste your data from other applications or websites. You can use tabular (TSV, CSV, DSV) or JSON data.
-          </Content>
+            TODO workspace
         </LayoutContentColumn>
       </LayoutContent>
       <LayoutFooter>

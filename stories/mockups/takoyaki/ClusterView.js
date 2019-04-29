@@ -5,14 +5,14 @@ import {
     LayoutContainer,
     LayoutFooter,
     LayoutFooterColumn,
-    DropZone,
     LayoutContent,
     LayoutContentColumn,
     LayoutHeader,
     AppTitle,
     RunningTitle,
-    Content,
-    ButtonContainer,
+    Field,
+    Label,
+    Control,
     Button
 } from '../../../src/components';
 
@@ -21,35 +21,26 @@ export default () => (
   <LayoutWrapper hasConfig>
     <LayoutHeader>
       <AppTitle>Takoyaki</AppTitle>
-      <RunningTitle>Choose a file</RunningTitle>
+      <RunningTitle>Working on <b>Article title</b>, found <b>n</b> columns using the <b>Fingerprint collision</b> method</RunningTitle>
     </LayoutHeader>
     <LayoutContainer>
       <LayoutContent>
         <LayoutContentColumn isConfig>
-          <ButtonContainer><Button isColor="info">
-                Paste
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                Upload a file
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                From URL
-          </Button>
-          </ButtonContainer>
-          <ButtonContainer><Button>
-                Samples
-          </Button>
-          </ButtonContainer>
+          <Field>
+            <Label>
+                    Order by
+            </Label>
+            <Control>
+              <div className="buttons has-addons">
+                <Button isColor={'info'} >number</Button>
+                <Button>distinct values</Button>
+                <Button>affected rows</Button>
+              </div>
+            </Control>
+          </Field>
         </LayoutContentColumn>
         <LayoutContentColumn isWorkspace>
-          <DropZone>
-            <span className="tech-info">Drag and drop some files here, or click to select files</span>
-          </DropZone>
-          <Content isSize={'medium'}>
-            Copy and paste your data from other applications or websites. You can use tabular (TSV, CSV, DSV) or JSON data.
-          </Content>
+          Todo workspace
         </LayoutContentColumn>
       </LayoutContent>
       <LayoutFooter>

@@ -16,8 +16,8 @@ import {
 export default () => (
   <LayoutWrapper>
     <LayoutHeader>
-        <AppTitle>App name</AppTitle>
-        <RunningTitle>Running title</RunningTitle>
+      <AppTitle>App name</AppTitle>
+      <RunningTitle>Running title</RunningTitle>
     </LayoutHeader>
     <LayoutContainer>
       <LayoutContent>

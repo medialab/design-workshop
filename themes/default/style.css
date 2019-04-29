@@ -6412,6 +6412,9 @@ label.panel-block {
 .layout-nav {
   position: relative; }
 
+.button-container {
+  margin-bottom: 0.25rem; }
+
 .app-title {
   color: #f7323f;
   font-size: 1.25rem;
@@ -6450,22 +6453,22 @@ label.panel-block {
     justify-content: stretch;
     min-height: 100vh; }
     .layout-wrapper .layout-content .layout-content-column {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
       padding-left: 0.25rem;
       padding-right: 0.25rem;
       box-sizing: content-box;
       flex: 1; }
   .layout-wrapper .layout-footer {
-    background: #f2f2f2;
-    padding-top: 0.5rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     color: #555858;
-    font-size: 0.75rem; }
+    font-size: 0.75rem;
+    min-height: 5rem; }
     .layout-wrapper .layout-footer .layout-footer-column {
       flex: 1;
+      padding-top: 0.5rem;
       padding-left: 0.25rem;
       padding-right: 0.25rem; }
   .layout-wrapper.has-config .layout-header-container, .layout-wrapper.has-nav .layout-header-container {
@@ -6485,9 +6488,8 @@ label.panel-block {
       background: #f2f2f2; }
   .layout-wrapper.has-config .layout-content-column.is-workspace, .layout-wrapper.has-nav .layout-content-column.is-workspace {
     background: #f2f2f2; }
-  .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary, .layout-wrapper.has-nav .layout-footer .layout-footer-column.is-secondary {
-    min-width: 33.33333%;
-    max-width: 33.33334%; }
+  .layout-wrapper.has-config .layout-footer .layout-footer-column.is-primary, .layout-wrapper.has-nav .layout-footer .layout-footer-column.is-primary {
+    background: #f2f2f2; }
   .layout-wrapper.has-config .layout-content .layout-content-column.is-config {
     flex: 1;
     text-align: right; }
@@ -6509,7 +6511,9 @@ label.panel-block {
     .layout-wrapper.has-nav .layout-container .layout-nav {
       flex: 1;
       padding-right: 0.25rem;
-      padding-top: 1rem; }
+      padding-top: 2rem; }
+    .layout-wrapper.has-nav .layout-container .layout-footer-column {
+      background: #f2f2f2; }
     .layout-wrapper.has-nav .layout-container > .layout-content {
       display: block;
       overflow: auto;
@@ -6535,7 +6539,8 @@ label.panel-block {
   .layout-wrapper.has-nav.has-config .layout-container .layout-footer-column.is-primary {
     flex: 3; }
   .layout-wrapper.has-nav.has-config .layout-container .layout-footer-column.is-secondary {
-    text-align: left; }
+    text-align: left;
+    min-width: unset; }
   .layout-wrapper .nav-collapse-container,
   .layout-wrapper #nav-collapse {
     display: none; }
@@ -6569,7 +6574,7 @@ label.panel-block {
       order: 2; } }
 
 .button {
-  justify-content: flex-start;
+  justify-content: center;
   height: 2rem;
   min-width: 10rem;
   font-size: 0.75rem;

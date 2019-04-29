@@ -17,8 +17,8 @@ import {
 export default () => (
   <LayoutWrapper hasNav>
     <LayoutHeader>
-        <AppTitle>App name</AppTitle>
-        <RunningTitle>Running title</RunningTitle>
+      <AppTitle>App name</AppTitle>
+      <RunningTitle>Running title</RunningTitle>
     </LayoutHeader>
     <LayoutContainer>
       <LayoutNav>

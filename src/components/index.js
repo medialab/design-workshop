@@ -159,3 +159,5 @@ export {default as LayoutHeader} from './LayoutHeader';
 export {default as AppTitle} from './AppTitle';
 export {default as RunningTitle} from './RunningTitle';
 export {default as LayoutNav} from './LayoutNav';
+export {default as BackgroundGenerator} from './BackgroundGenerator';
+export {default as ButtonContainer} from './ButtonContainer';

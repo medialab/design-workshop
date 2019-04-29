@@ -23,7 +23,9 @@ import {
  * Mockups
  */
 import {
-  Landing
+  Landing,
+  SelectView,
+  ClusterView,
 } from './mockups/takoyaki';
 
 storiesOf('Documentation', module).add('Welcome to médialab design workshop', () => <Md source={introduction} />);
@@ -36,6 +38,6 @@ storiesOf('Layouts', module)
 .add('Triple (workspace + configspace + nav)', () => <Triple />);
 
 storiesOf('Mockups/Takoyaki', module)
-  .add('Landing', () => (
-    <Landing />
-  ));
+  .add('Landing', () => (<Landing />))
+  .add('Select view', () => (<SelectView />))
+  .add('Cluster view', () => (<ClusterView />));
