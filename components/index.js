@@ -693,16 +693,10 @@ Object.defineProperty(exports, "LayoutFooterColumn", {
     return _LayoutFooterColumn["default"];
   }
 });
-Object.defineProperty(exports, "LayoutHeaderContainer", {
+Object.defineProperty(exports, "LayoutHeader", {
   enumerable: true,
   get: function get() {
-    return _LayoutHeaderContainer["default"];
-  }
-});
-Object.defineProperty(exports, "LayoutHeaderContent", {
-  enumerable: true,
-  get: function get() {
-    return _LayoutHeaderContent["default"];
+    return _LayoutHeader["default"];
   }
 });
 Object.defineProperty(exports, "AppTitle", {
@@ -760,9 +754,7 @@ var _LayoutFooter = _interopRequireDefault(require("./LayoutFooter"));
 
 var _LayoutFooterColumn = _interopRequireDefault(require("./LayoutFooterColumn"));
 
-var _LayoutHeaderContainer = _interopRequireDefault(require("./LayoutHeaderContainer"));
-
-var _LayoutHeaderContent = _interopRequireDefault(require("./LayoutHeaderContent"));
+var _LayoutHeader = _interopRequireDefault(require("./LayoutHeader"));
 
 var _AppTitle = _interopRequireDefault(require("./AppTitle"));
 
