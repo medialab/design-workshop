@@ -2,324 +2,319 @@
 // @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
 
- /**
-  * ROOT STYLING
-  */
-  :root{
-    font-size: 18px;
-    line-height: 26px;
-    text-rendering: optimizeLegibility;
-    }
+/**
+* ROOT STYLING
+*/
+:root{
+  font-size: 18px;
+  line-height: 26px;
+  text-rendering: optimizeLegibility;
+}
 
 @mixin flex($direction, $justify) {
-	display: flex;
-    flex-flow: $direction nowrap;
-    justify-content: $justify;
+  display: flex;
+  flex-flow: $direction nowrap;
+  justify-content: $justify;
 }
 
 @mixin absContainer() {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-
-.layout-wrapper{
-    @include absContainer();
-    @include flex(column, stretch);
-
-    .layout-header-container{
-        @include flex(row, center);
-        background: $background;
-    }
-    .layout-header-content{
-        @include flex(row, space-between);
-        width: 100%;
-        .app-title,
-        .running-title{
-            padding-top: $gutter-medium;
-            padding-left: $gutter-small;
-            padding-right: $gutter-small;
-        }
-    }
-
-    .layout-container{
-        overflow: auto;
-        flex: 1;
-    }
-
-    .layout-content{
-        @include flex(row, stretch);
-        min-height: 100vh;
-        .layout-content-column{
-            padding-top: $gutter-large;
-            padding-bottom: $gutter-large;
-            padding-left: $gutter-small;
-            padding-right: $gutter-small;
-            box-sizing: content-box;
-            flex: 1;
-        }
-    }
-
-    // .layout-content-column,
-    // .layout-footer-column{
-    //     max-width: $content-max-width;
-    // }
-
-    .layout-footer{
-        background: $background;
-        padding-top: $gutter-medium;
-        @include flex(row, center);
-        color: $text-secondary;
-        font-size: $size-7;
-        .layout-footer-column{
-            flex: 1;
-            padding-left: $gutter-small;
-            padding-right: $gutter-small;
-        }
-    }
-
-    &.has-config,&.has-nav{
-        .layout-header-container{
-            background: transparent;
-        }
-        .layout-header-content{
-            
-            flex: 1;
-            @include flex(row, stretch);
-
-            .app-title{
-                flex: 1;
-                text-align: right;
-                min-width: 33.33333%;
-                min-width: 33.33334%;
-            }
-            .running-title{
-                flex: 2;
-                background: $background;
-            }
-        }
-        .layout-content-column.is-workspace{
-            background: $background;
-        }
-        .layout-footer{
-            .layout-footer-column.is-secondary{
-                min-width: 33.33333%;
-                max-width: 33.33334%;
-            }
-        }
-        
-    }
-
-    &.has-config{
-        .layout-content{
-            .layout-content-column{
-                &.is-config{
-                    flex: 1;
-                    text-align: right;               
-                }
-                &.is-workspace{
-                    flex: 2;
-                }
-            }
-        }
-        .layout-footer{
-            .layout-footer-column{
-                &.is-secondary{
-                    flex: 1;
-                    text-align: right;
-                }
-                &.is-primary{
-                    flex: 2;
-                }
-            }
-        }
-    }
-
-    &.has-nav{
-        .layout-container{
-            @include flex(row, stretch);
-            overflow: hidden;
-
-            .layout-nav{
-                flex: 1;
-                // min-width: 33.53333%;
-                // max-width: 33.53334%;
-                padding-right: $gutter-small;
-                padding-top: $gutter-large;
-            }
-
-            > .layout-content{
-                display: block;
-                overflow: auto;
-                flex: 2;
-            }
-            // .layout-content-column.is-workspace{
-            //     padding-left: $gutter-small;
-            // }
-
-        }
-        .layout-nav{
-            flex: 1;
-            text-align: right;
-        }
-
-        .layout-header-container{
-            .app-title{
-                flex: 1;
-                text-align: right;
-            }
-            .running-title{
-                flex: 2;
-            }
-        }
-    }
-    &.has-nav.has-config{
-        .layout-header-container{
-            .running-title{
-                flex: 4;
-            }
-        }
-        .layout-container{
-            .layout-nav{
-                flex: 1;
-                min-width: 33.33333%;
-                max-width: 33.33334%;
-            }
-
-            > .layout-content{
-                flex: 4;
-            }
-            .layout-content-column.is-workspace{
-                flex: 3;
-            }
-            .layout-content-column.is-config{
-                text-align: left;
-                background: $background;
-            }
-
-            .layout-footer-column.is-primary{
-                flex: 3;
-            }
-
-            .layout-footer-column.is-secondary{
-                text-align: left;
-            }
-
-        }
-        
-    }
-
-    .nav-collapse-container,
-    #nav-collapse{
-        display: none;
-    }
-
-    @media screen and (max-width: $tablet) {
-        .layout-header-content{
-           min-width: unset;
-           max-width: unset;
-           width: 100%;
-        }
-
-        &.has-nav{
-            .layout-header-content .app-title,
-            .layout-container .layout-nav,
-            &.has-config .layout-container .layout-nav{
-                max-width: 20%;
-                min-width: 20.0001%;
-            }
-        }
-
-        &.has-config{
-            &:not(.has-nav) {
-                .layout-header-content{
-                    @include flex(column, flex-start);
-                    .app-title{
-                        text-align: left;
-                    }
-                    .running-title{
-                        background: transparent;
-                    }
-                }
-            }
-            
-            .layout-content,
-            .layout-footer{
-                @include flex(column, flex-start);
-            }
-           
-            .layout-footer .layout-footer-column.is-secondary,
-            .layout-content .layout-content-column.is-config{
-                text-align: left;
-                // max-width: unset;
-                // padding-left: $gutter-small;
-            }
-            .layout-footer .layout-footer-column.is-secondary{
-                order: 2;
-            }
-        }
-    }
-}
-
-
-.layout-nav{
-    position: relative;
-}
-
-.app-title{
-    color: $red;
-    font-size: $size-5;
-    font-weight: $bold-weight;
-    cursor: pointer;
-}
 
 .running-title{
   font-size: $size-5;
 }
 
 
-.button{
-    justify-content: flex-start;
-    height: $size-3;
-    min-width: $size-6 * 10;
- //    max-width: $size-6 * 10;
-    font-size: $size-7;
-    border-radius: 0;
-    align-items: flex-start;
- 
- 
- flex-flow: column nowrap;
- 
- justify-content: center;
-    border: none;
-    &:active{
-        border: none;
+.layout-nav{
+  position: relative;
+}
+
+.app-title{
+  color: $red;
+  font-size: $size-5;
+  font-weight: $bold-weight;
+  cursor: pointer;
+}
+
+.layout-wrapper{
+  @include absContainer();
+  @include flex(column, stretch);
+
+  .layout-header-container{
+    @include flex(row, center);
+    background: $background;
+  }
+  .layout-header-content{
+    @include flex(row, space-between);
+    width: 100%;
+    .app-title,
+    .running-title{
+      padding-top: $gutter-medium;
+      padding-left: $gutter-small;
+      padding-right: $gutter-small;
     }
+  }
+
+  .layout-container{
+    overflow: auto;
+    flex: 1;
+  }
+
+  .layout-content{
+    @include flex(row, stretch);
+    min-height: 100vh;
+    .layout-content-column{
+      padding-top: $gutter-large;
+      padding-bottom: $gutter-large;
+      padding-left: $gutter-small;
+      padding-right: $gutter-small;
+      box-sizing: content-box;
+      flex: 1;
+    }
+  }
+
+  // .layout-content-column,
+  // .layout-footer-column{
+  //     max-width: $content-max-width;
+  // }
+
+  .layout-footer{
+    background: $background;
+    padding-top: $gutter-medium;
+    @include flex(row, center);
+    color: $text-secondary;
+    font-size: $size-7;
+    .layout-footer-column{
+      flex: 1;
+      padding-left: $gutter-small;
+      padding-right: $gutter-small;
+    }
+  }
+
+  &.has-config,&.has-nav{
+    .layout-header-container{
+      background: transparent;
+    }
+    .layout-header-content{
+            
+      flex: 1;
+      @include flex(row, stretch);
+
+      .app-title{
+        flex: 1;
+        text-align: right;
+        min-width: 33.33333%;
+        min-width: 33.33334%;
+      }
+      .running-title{
+        flex: 2;
+        background: $background;
+      }
+    }
+    .layout-content-column.is-workspace{
+      background: $background;
+    }
+    .layout-footer{
+      .layout-footer-column.is-secondary{
+        min-width: 33.33333%;
+        max-width: 33.33334%;
+      }
+    }
+        
+  }
+
+  &.has-config{
+    .layout-content{
+      .layout-content-column{
+        &.is-config{
+          flex: 1;
+          text-align: right;               
+        }
+        &.is-workspace{
+          flex: 2;
+        }
+      }
+    }
+    .layout-footer{
+      .layout-footer-column{
+        &.is-secondary{
+          flex: 1;
+          text-align: right;
+        }
+        &.is-primary{
+          flex: 2;
+        }
+      }
+    }
+  }
+
+  &.has-nav{
+    .layout-nav{
+      flex: 1;
+      text-align: right;
+    }
+    .layout-container{
+      @include flex(row, stretch);
+      overflow: hidden;
+
+      .layout-nav{
+        flex: 1;
+        // min-width: 33.53333%;
+        // max-width: 33.53334%;
+        padding-right: $gutter-small;
+        padding-top: $gutter-large;
+      }
+
+      > .layout-content{
+        display: block;
+        overflow: auto;
+        flex: 2;
+      }
+
+    }
+
+    .layout-header-container{
+      .app-title{
+        flex: 1;
+        text-align: right;
+      }
+      .running-title{
+        flex: 2;
+      }
+    }
+  }
+  &.has-nav.has-config{
+    .layout-header-container{
+      .running-title{
+        flex: 4;
+      }
+    }
+    .layout-container{
+      .layout-nav{
+        flex: 1;
+        min-width: 33.33333%;
+        max-width: 33.33334%;
+      }
+
+      > .layout-content{
+        flex: 4;
+      }
+      .layout-content-column.is-workspace{
+        flex: 3;
+      }
+      .layout-content-column.is-config{
+        text-align: left;
+        background: $background;
+      }
+
+      .layout-footer-column.is-primary{
+        flex: 3;
+      }
+
+      .layout-footer-column.is-secondary{
+        text-align: left;
+      }
+
+    }
+        
+  }
+
+  .nav-collapse-container,
+  #nav-collapse{
+    display: none;
+  }
+
+  @media screen and (max-width: $tablet) {
+    .layout-header-content{
+      min-width: unset;
+      max-width: unset;
+      width: 100%;
+    }
+
+    &.has-nav{
+      .layout-header-content .app-title,
+      .layout-container .layout-nav,
+      &.has-config .layout-container .layout-nav{
+        max-width: 20%;
+        min-width: 20.0001%;
+      }
+    }
+
+    &.has-config{
+      &:not(.has-nav) {
+        .layout-header-content{
+          @include flex(column, flex-start);
+          .app-title{
+            text-align: left;
+          }
+          .running-title{
+            background: transparent;
+          }
+        }
+      }
+            
+      .layout-content,
+      .layout-footer{
+        @include flex(column, flex-start);
+      }
+           
+      .layout-footer .layout-footer-column.is-secondary,
+      .layout-content .layout-content-column.is-config{
+        text-align: left;
+        // max-width: unset;
+        // padding-left: $gutter-small;
+      }
+      .layout-footer .layout-footer-column.is-secondary{
+        order: 2;
+      }
+    }
+  }
+}
+
+
+.button{
+  justify-content: flex-start;
+  height: $size-3;
+  min-width: $size-6 * 10;
+  //    max-width: $size-6 * 10;
+  font-size: $size-7;
+  border-radius: 0;
+  align-items: flex-start;
  
-    background: white;
+ 
+  flex-flow: column nowrap;
+ 
+  &:active{
+    border: none;
+  }
+ 
+  background: white;
+  border: 1px solid $background;
+ 
+  padding: 0;
+  padding-left: $gutter-medium;
+  padding-right: $gutter-medium;
+  //    height: $size-3;
+ 
+ 
+  &:hover{
+    background: rgba(244,244,244, 0.5);
     border: 1px solid $background;
  
-    padding: 0;
-    padding-left: $gutter-medium;
-    padding-right: $gutter-medium;
- //    height: $size-3;
+    transition : background .5s ease;
+  }
+  color: $info;
  
- 
-    &:hover{
-        background: rgba(244,244,244, 0.5);
-        border: 1px solid $background;
- 
-        transition : background .5s ease;
+  &.is-primary{
+    font-size: $size-6;
+    font-weight: $bold-weight;
+    &.is-bordered{
+      border: 1px solid $background;
     }
-    color: $info;
- 
-    &.is-primary{
-     font-size: $size-6;
-     font-weight: $bold-weight;
-         &.is-bordered{
-             border: 1px solid $background;
-         }
-    }
- }
+  }
+}

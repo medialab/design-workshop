@@ -15,7 +15,7 @@ var _default = function _default(_ref) {
       className = _ref$className === void 0 ? '' : _ref$className,
       _ref$style = _ref.style,
       style = _ref$style === void 0 ? {} : _ref$style;
-  return _react["default"].createElement("header", {
+  return _react["default"].createElement("div", {
     style: style,
     className: "layout-header-content ".concat(className)
   }, children);
