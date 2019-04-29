@@ -6399,12 +6399,24 @@ label.panel-block {
   padding: 3rem 1.5rem 6rem; }
 
 /**
-  * ROOT STYLING
-  */
+* ROOT STYLING
+*/
 :root {
   font-size: 18px;
   line-height: 26px;
   text-rendering: optimizeLegibility; }
+
+.running-title {
+  font-size: 1.25rem; }
+
+.layout-nav {
+  position: relative; }
+
+.app-title {
+  color: #f7323f;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer; }
 
 .layout-wrapper {
   position: absolute;
@@ -6486,6 +6498,9 @@ label.panel-block {
     text-align: right; }
   .layout-wrapper.has-config .layout-footer .layout-footer-column.is-primary {
     flex: 2; }
+  .layout-wrapper.has-nav .layout-nav {
+    flex: 1;
+    text-align: right; }
   .layout-wrapper.has-nav .layout-container {
     display: flex;
     flex-flow: row nowrap;
@@ -6499,9 +6514,6 @@ label.panel-block {
       display: block;
       overflow: auto;
       flex: 2; }
-  .layout-wrapper.has-nav .layout-nav {
-    flex: 1;
-    text-align: right; }
   .layout-wrapper.has-nav .layout-header-container .app-title {
     flex: 1;
     text-align: right; }
@@ -6556,18 +6568,6 @@ label.panel-block {
     .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary {
       order: 2; } }
 
-.layout-nav {
-  position: relative; }
-
-.app-title {
-  color: #f7323f;
-  font-size: 1.25rem;
-  font-weight: 600;
-  cursor: pointer; }
-
-.running-title {
-  font-size: 1.25rem; }
-
 .button {
   justify-content: flex-start;
   height: 2rem;
@@ -6576,8 +6576,6 @@ label.panel-block {
   border-radius: 0;
   align-items: flex-start;
   flex-flow: column nowrap;
-  justify-content: center;
-  border: none;
   background: white;
   border: 1px solid #f2f2f2;
   padding: 0;

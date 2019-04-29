@@ -154,8 +154,7 @@ export {default as LayoutContent} from './LayoutContent';
 export {default as LayoutContentColumn} from './LayoutContentColumn';
 export {default as LayoutFooter} from './LayoutFooter';
 export {default as LayoutFooterColumn} from './LayoutFooterColumn';
-export {default as LayoutHeaderContainer} from './LayoutHeaderContainer';
-export {default as LayoutHeaderContent} from './LayoutHeaderContent';
+export {default as LayoutHeader} from './LayoutHeader';
 
 export {default as AppTitle} from './AppTitle';
 export {default as RunningTitle} from './RunningTitle';

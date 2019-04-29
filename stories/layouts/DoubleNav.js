@@ -8,8 +8,7 @@ import {
     LayoutContent,
     LayoutNav,
     LayoutContentColumn,
-    LayoutHeaderContainer,
-    LayoutHeaderContent,
+    LayoutHeader,
     AppTitle,
     RunningTitle
 } from '../../src/components';
@@ -17,12 +16,10 @@ import {
 
 export default () => (
   <LayoutWrapper hasNav>
-    <LayoutHeaderContainer>
-      <LayoutHeaderContent>
+    <LayoutHeader>
         <AppTitle>App name</AppTitle>
         <RunningTitle>Running title</RunningTitle>
-      </LayoutHeaderContent>
-    </LayoutHeaderContainer>
+    </LayoutHeader>
     <LayoutContainer>
       <LayoutNav>
         <ul>

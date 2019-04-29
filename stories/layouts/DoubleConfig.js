@@ -7,8 +7,7 @@ import {
     LayoutFooterColumn,
     LayoutContent,
     LayoutContentColumn,
-    LayoutHeaderContainer,
-    LayoutHeaderContent,
+    LayoutHeader,
     AppTitle,
     RunningTitle
 } from '../../src/components';
@@ -16,12 +15,10 @@ import {
 
 export default () => (
   <LayoutWrapper hasConfig>
-    <LayoutHeaderContainer>
-      <LayoutHeaderContent>
+    <LayoutHeader>
         <AppTitle>App name</AppTitle>
         <RunningTitle>Running title</RunningTitle>
-      </LayoutHeaderContent>
-    </LayoutHeaderContainer>
+    </LayoutHeader>
     <LayoutContainer>
       <LayoutContent>
         <LayoutContentColumn isConfig>
