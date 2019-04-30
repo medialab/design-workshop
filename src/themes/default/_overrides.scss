@@ -1,11 +1,10 @@
 // // Overrides
 // @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
-
 /**
 * ROOT STYLING
 */
-:root{
+:root {
   font-size: 18px;
   line-height: 26px;
   text-rendering: optimizeLegibility;
@@ -32,23 +31,26 @@
  * ISOLATED COMPONENTS
  */
 
-
-.drop-zone{
+.drop-zone {
   position: relative;
   width: 100%;
   min-height: 75vh;
   border: none;
   overflow: hidden;
-  &.is-size-small{
+
+  &.is-size-small {
     height: 2rem;
   }
-  &.is-size-medium{
+
+  &.is-size-medium {
     height: 5rem;
   }
-  &.is-size-big{
+
+  &.is-size-big {
     height: 10rem;
   }
-  .drop-zone-content-container{
+
+  .drop-zone-content-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,13 +59,14 @@
     width: 100%;
     left: 0;
     top: 0;
-    .drop-zone-content{
+
+    .drop-zone-content {
       z-index: 2;
     }
   }
 }
 
-.button{
+.button {
   justify-content: center;
   height: $size-3;
   min-width: $size-6 * 10;
@@ -71,113 +74,117 @@
   font-size: $size-7;
   border-radius: 0;
   align-items: flex-start;
- 
- 
+  box-sizing: border-box;
   flex-flow: column nowrap;
- 
-  &:active{
+
+  &:active {
     border: none;
   }
- 
+
   background: white;
   border: 1px solid $background;
- 
   padding: 0;
   padding-left: $gutter-medium;
   padding-right: $gutter-medium;
   //    height: $size-3;
- 
- 
-  &:hover{
-    background: rgba(244,244,244, 0.5);
+
+  &:hover {
+    background: rgba(244, 244, 244, 0.5);
     border: 1px solid $background;
- 
-    transition : background .5s ease;
+    transition: background 0.5s ease;
   }
+
   color: $info;
- 
-  &.is-primary{
+
+  &.is-primary {
     font-size: $size-6;
     font-weight: $bold-weight;
-    &.is-bordered{
+
+    &.is-bordered {
       border: 1px solid $background;
     }
   }
 }
 
-
-.running-title{
+.running-title {
   font-size: $size-5;
 }
 
-.layout-nav{
+.layout-nav {
   position: relative;
 }
 
-.button-container{
-  margin-bottom:  $gutter-small;
+.button-container {
+  margin-bottom: $gutter-small;
 }
-.label{
-  font-size: .75rem;
-  padding-right: .5rem;
-  margin-bottom: .5rem;
+
+.label {
+  font-size: 0.75rem;
+  padding-right: 0.5rem;
+  margin-bottom: 0.5rem;
   font-weight: $black-weight;
 }
-.buttons{
 
+.buttons {
   display: flex;
   flex-direction: row;
-
   flex-wrap: nowrap;
-  .button{
+
+  .button {
     min-width: unset;
     max-height: unset;
     flex: 1;
   }
 }
 
-.tech-info{
+.tech-info {
   font-size: $size-7bis;
   font-family: $family-monospace;
   background: $background;
   color: $red;
 }
 
-.app-title{
+.app-title {
   color: $red;
   font-size: $size-5;
   font-weight: $bold-weight;
   cursor: pointer;
 }
 
-.layout-wrapper{
+.layout-wrapper {
   @include absContainer();
   @include flex(column, stretch);
 
-  .layout-header-container{
+  .layout-header-container {
     @include flex(row, center);
+
     background: $background;
   }
-  .layout-header-content{
+
+  .layout-header-content {
     @include flex(row, space-between);
+
     width: 100%;
+
     .app-title,
-    .running-title{
+    .running-title {
       padding-top: $gutter-medium;
       padding-left: $gutter-small;
       padding-right: $gutter-small;
     }
   }
 
-  .layout-container{
+  .layout-container {
     overflow: auto;
     flex: 1;
   }
 
-  .layout-content{
+  .layout-content {
     @include flex(row, stretch);
+
     min-height: 100vh;
-    .layout-content-column{
+
+    .layout-content-column {
       padding-top: $gutter-large;
       padding-bottom: $gutter-large;
       padding-left: $gutter-small;
@@ -187,13 +194,14 @@
     }
   }
 
-
-  .layout-footer{
+  .layout-footer {
     @include flex(row, center);
+
     color: $text-secondary;
     font-size: $size-7;
     min-height: 5rem;
-    .layout-footer-column{
+
+    .layout-footer-column {
       flex: 1;
       padding-top: $gutter-medium;
       padding-left: $gutter-small;
@@ -201,73 +209,81 @@
     }
   }
 
-  &.has-config,&.has-nav{
-    .layout-header-container{
+  &.has-config,
+  &.has-nav {
+    .layout-header-container {
       background: transparent;
     }
-    .layout-header-content{
-            
+
+    .layout-header-content {
       flex: 1;
+
       @include flex(row, stretch);
 
-      .app-title{
+      .app-title {
         flex: 1;
         text-align: right;
         min-width: 33.33333%;
         min-width: 33.33334%;
       }
-      .running-title{
+
+      .running-title {
         flex: 2;
         background: $background;
       }
     }
-    .layout-content-column.is-workspace{
+
+    .layout-content-column.is-workspace {
       background: $background;
     }
-    .layout-footer{
-      .layout-footer-column.is-primary{
+
+    .layout-footer {
+      .layout-footer-column.is-primary {
         background: $background;
       }
-      
     }
-        
   }
 
-  &.has-config{
-    .layout-content{
-      .layout-content-column{
-        &.is-config{
-          flex: 1;
-          text-align: right;               
-        }
-        &.is-workspace{
-          flex: 2;
-        }
-      }
-    }
-    .layout-footer{
-      .layout-footer-column{
-        &.is-secondary{
+  &.has-config {
+    .layout-content {
+      .layout-content-column {
+        &.is-config {
           flex: 1;
           text-align: right;
         }
-        &.is-primary{
+
+        &.is-workspace {
+          flex: 2;
+        }
+      }
+    }
+
+    .layout-footer {
+      .layout-footer-column {
+        &.is-secondary {
+          flex: 1;
+          text-align: right;
+        }
+
+        &.is-primary {
           flex: 2;
         }
       }
     }
   }
 
-  &.has-nav{
-    .layout-nav{
+  &.has-nav {
+    .layout-nav {
       flex: 1;
       text-align: right;
     }
-    .layout-container{
+
+    .layout-container {
       @include flex(row, stretch);
+
       overflow: hidden;
 
-      .layout-nav{
+      .layout-nav {
         flex: 1;
         // min-width: 33.53333%;
         // max-width: 33.53334%;
@@ -275,111 +291,116 @@
         padding-top: $gutter-large;
       }
 
-      .layout-footer-column{
+      .layout-footer-column {
         background: $background;
       }
 
-      > .layout-content{
+      > .layout-content {
         display: block;
         overflow: auto;
         flex: 2;
       }
-
     }
 
-    .layout-header-container{
-      .app-title{
+    .layout-header-container {
+      .app-title {
         flex: 1;
         text-align: right;
       }
-      .running-title{
+
+      .running-title {
         flex: 2;
       }
     }
   }
-  &.has-nav.has-config{
-    .layout-header-container{
-      .running-title{
+
+  &.has-nav.has-config {
+    .layout-header-container {
+      .running-title {
         flex: 4;
       }
     }
-    .layout-container{
-      .layout-nav{
+
+    .layout-container {
+      .layout-nav {
         flex: 1;
         min-width: 33.33333%;
         max-width: 33.33334%;
       }
 
-      > .layout-content{
+      > .layout-content {
         flex: 4;
       }
-      .layout-content-column.is-workspace{
+
+      .layout-content-column.is-workspace {
         flex: 3;
       }
-      .layout-content-column.is-config{
+
+      .layout-content-column.is-config {
         text-align: left;
         background: $background;
       }
 
-      .layout-footer-column.is-primary{
+      .layout-footer-column.is-primary {
         flex: 3;
       }
 
-      .layout-footer-column.is-secondary{
+      .layout-footer-column.is-secondary {
         text-align: left;
         min-width: unset;
       }
-
     }
-        
   }
 
   .nav-collapse-container,
-  #nav-collapse{
+  #nav-collapse {
     display: none;
   }
 
   @media screen and (max-width: $tablet) {
-    .layout-header-content{
+    .layout-header-content {
       min-width: unset;
       max-width: unset;
       width: 100%;
     }
 
-    &.has-nav{
+    &.has-nav {
       .layout-header-content .app-title,
       .layout-container .layout-nav,
-      &.has-config .layout-container .layout-nav{
+      &.has-config .layout-container .layout-nav {
         max-width: 20%;
         min-width: 20.0001%;
       }
     }
 
-    &.has-config{
+    &.has-config {
       &:not(.has-nav) {
-        .layout-header-content{
+        .layout-header-content {
           @include flex(column, flex-start);
-          .app-title{
+
+          .app-title {
             text-align: left;
           }
-          .running-title{
+
+          .running-title {
             background: transparent;
           }
         }
       }
-            
+
       .layout-content,
-      .layout-footer{
+      .layout-footer {
         @include flex(column, flex-start);
       }
-           
+
       .layout-footer .layout-footer-column.is-secondary,
-      .layout-content .layout-content-column.is-config{
+      .layout-content .layout-content-column.is-config {
         text-align: left;
         // max-width: unset;
         // padding-left: $gutter-small;
       }
-      .layout-footer .layout-footer-column.is-secondary{
+
+      .layout-footer .layout-footer-column.is-secondary {
         order: 2;
       }
     }
