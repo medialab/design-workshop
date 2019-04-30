@@ -3,15 +3,24 @@ const args = require('minimist')(process.argv.slice(2));
 
 const components = args._;
 
+const camelToClassName = name => {
+    const lower = name[0].toLowerCase() + name.substr(1);
+    return lower.replace(/[A-Z]/g, m => '-' + m.toLowerCase());
+}
+
 components.reduce((cur, componentName) => {
     return cur.then(() => new Promise((resolve, reject) => {
         console.log('generating files for %s component', componentName);
         const indexContent = `export default from './${componentName}.js'`;
         const compContent = `import React from 'react';
 
-const ${componentName} = ({}) => (
-    <div>
-        ${componentName}
+const ${componentName} = ({
+    className = '',
+    style = {},
+    children
+}) => (
+    <div style={style} className={\`${camelToClassName(componentName)} \${className}}\`}>
+        {children}
     </div>
 );
 export default ${componentName};
