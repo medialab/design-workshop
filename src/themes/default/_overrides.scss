@@ -30,6 +30,68 @@
 /**
  * ISOLATED COMPONENTS
  */
+.action-table {
+  @include absContainer();
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: white;
+
+  .table-cell {
+    width: 10rem;
+    max-width: 10rem;
+    min-width: 10rem;
+    font-family: monospace;
+    font-size: $size-7bis;
+    padding: $gutter-small;
+  }
+
+  @include flex(column, stretch);
+
+  .action-table-header,
+  .action-table-footer,
+  .action-table-main {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+  }
+
+  .action-table-header {
+    top: 0;
+
+    .table-cell {
+      color: #363636;
+      border: 1px solid #dbdbdb;
+      border-width: 0 0 2px;
+      vertical-align: top;
+      font-weight: $bold-weight;
+    }
+  }
+
+  .action-table-footer {
+    bottom: 0;
+    padding-bottom: $gutter-medium;
+  }
+
+  .action-table-main {
+    top: 2rem;
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+    flex-flow: column nowrap;
+  }
+
+  .table-row {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid #dbdbdb;
+
+    &:nth-child(even) {
+      background: #fafafa;
+    }
+  }
+}
 
 .drop-zone {
   position: relative;
@@ -99,10 +161,11 @@
   &.is-primary {
     font-size: $size-6;
     font-weight: $bold-weight;
+  }
 
-    &.is-bordered {
-      border: 1px solid $background;
-    }
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
@@ -125,7 +188,7 @@
   font-weight: $black-weight;
 }
 
-.buttons {
+.buttons-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -134,6 +197,53 @@
     min-width: unset;
     max-height: unset;
     flex: 1;
+  }
+}
+
+.accordion-container {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.accordion-element {
+  border-bottom: 1px solid lightgrey;
+
+  &.is-selected {
+    background: #7f7f7f;
+    color: white;
+  }
+
+  .accordion-element-header {
+    @include flex('row', 'stretch');
+
+    align-items: center;
+    padding: $gutter-medium;
+    cursor: pointer;
+
+    .title-container {
+      font-size: $size-7bis;
+      flex: 1;
+    }
+
+    .subtitle-container {
+      font-size: $size-7bis;
+      font-family: monospace;
+    }
+  }
+
+  .accordion-element-content-container {
+    transition: all 0.5s ease;
+    overflow: hidden;
+    margin: $gutter-small;
+    max-height: 1000px;
+    padding-left: $gutter-small;
+  }
+
+  &.is-collapsed {
+    .accordion-element-content-container {
+      margin: 0;
+      max-height: 0;
+      margin-left: $gutter-small;
+    }
   }
 }
 

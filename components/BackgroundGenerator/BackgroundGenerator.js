@@ -9,9 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var LIGHT = '░';
-var MEDIUM = '▒';
-var DARK = '▓';
+var LIGHT = '░'; // const MEDIUM = '▒';
+// const DARK = '▓';
 
 var _default = function _default(_ref) {
   var _ref$rows = _ref.rows,

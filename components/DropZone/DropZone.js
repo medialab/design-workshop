@@ -11,27 +11,39 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactDropzone = _interopRequireDefault(require("react-dropzone"));
 
-var _ = require("../");
+var _BackgroundGenerator = _interopRequireDefault(require("../BackgroundGenerator"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-console.log('Dropzone', _reactDropzone["default"]);
 /**
  * Renders the DropZone component as a pure function
  * @param {object} props - used props (see prop types below)
  * @param {object} context - used context data (see context types below)
  * @return {ReactElement} component - the resulting component
  */
-
-var DropZone = function DropZone() {
+var DropZone = function DropZone(_ref) {
+  var onDrop = _ref.onDrop,
+      children = _ref.children,
+      accept = _ref.accept,
+      maxSize = _ref.maxSize,
+      _ref$isSize = _ref.isSize,
+      isSize = _ref$isSize === void 0 ? 'medium' : _ref$isSize;
   return _react["default"].createElement(_reactDropzone["default"], {
-    onDrop: function onDrop(acceptedFiles) {
-      return console.log(acceptedFiles);
-    }
-  }, function (_ref) {
-    var getRootProps = _ref.getRootProps,
-        getInputProps = _ref.getInputProps;
-    return _react["default"].createElement("section", null, _react["default"].createElement("div", getRootProps(), _react["default"].createElement("input", getInputProps()), _react["default"].createElement("p", null, "Drag 'n' drop some files here, or click to select files")));
+    className: "drop-zone-container",
+    activeClassName: "active",
+    accept: accept,
+    maxSize: maxSize,
+    onDrop: onDrop
+  }, function (_ref2) {
+    var getRootProps = _ref2.getRootProps,
+        getInputProps = _ref2.getInputProps;
+    return _react["default"].createElement("section", {
+      className: "drop-zone is-size-".concat(isSize)
+    }, _react["default"].createElement("div", getRootProps(), _react["default"].createElement(_BackgroundGenerator["default"], null), _react["default"].createElement("input", getInputProps()), _react["default"].createElement("div", {
+      className: "drop-zone-content-container"
+    }, _react["default"].createElement("div", {
+      className: "drop-zone-content"
+    }, children))));
   });
 };
 /*
@@ -54,7 +66,8 @@ const DropZone = ({
       </div>
     )}
   </DropzoneComponent>
-);*/
+);
+*/
 
 /**
  * Component's properties types

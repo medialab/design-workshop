@@ -5,6 +5,7 @@ import {
     LayoutContainer,
     LayoutFooter,
     LayoutFooterColumn,
+    Content,
     LayoutContent,
     LayoutContentColumn,
     LayoutHeader,
@@ -13,7 +14,11 @@ import {
     Field,
     Label,
     Control,
-    Button
+    ButtonsRow,
+    Button,
+    AccordionContainer,
+    ButtonContainer,
+    AccordionElement,
 } from '../../../src/components';
 
 
@@ -31,13 +36,55 @@ export default () => (
                     Order by
             </Label>
             <Control>
-              <div className="buttons has-addons">
+              <ButtonsRow>
                 <Button isColor={'info'} >number</Button>
                 <Button>distinct values</Button>
                 <Button>affected rows</Button>
-              </div>
+              </ButtonsRow>
             </Control>
           </Field>
+          <Field>
+            <Label>
+                    Cluster by
+            </Label>
+            <Control>
+
+              <AccordionContainer>
+                {
+                  ['Fingerprint collision', 'Cologne collision', 'Metaphone collision', 'Levenshtein VPTree']
+                  .map((method, index) => (
+                    <AccordionElement
+                      isSelected={index === 0}
+                      key={index}
+                      title={method}
+                      subtitle="233 comp.">
+                      <Content isSize={'small'}>
+                        Computing clusters of strings whose fingerprints are the same. This is definitely the first recipe you want to try since it is really performant and usually produces very good results.
+                      </Content>
+                      <Button isColor="primary" isDisabled={index === 0}>
+                        Use this method
+                      </Button>
+                    </AccordionElement>
+                  ))
+                }
+              </AccordionContainer>
+            </Control>
+          </Field>
+          <ButtonContainer>
+            <Button isFullWidth isColor={'primary'}>
+            Add a recipe
+            </Button>
+          </ButtonContainer>
+          <ButtonContainer>
+            <Button isFullWidth isColor={'primary'}>
+            Recluster
+            </Button>
+          </ButtonContainer>
+          <ButtonContainer>
+            <Button isFullWidth isColor={'primary'}>
+            Download
+            </Button>
+          </ButtonContainer>
         </LayoutContentColumn>
         <LayoutContentColumn isWorkspace>
           Todo workspace
