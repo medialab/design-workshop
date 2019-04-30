@@ -19,8 +19,55 @@ import {
     AccordionContainer,
     ButtonContainer,
     AccordionElement,
+    Level,
+    Columns,
+    Column
 } from '../../../src/components';
 
+
+const ClusterCard = ({cluster}) => (
+  <Level>
+    <Columns>
+      <Column isSize={6}>
+        <ButtonContainer>
+          <Button isColor="primary">Harmonize</Button>
+        </ButtonContainer>
+        <ButtonContainer>
+          <Button isColor="warning">Drop</Button>
+        </ButtonContainer>
+        <ButtonContainer>
+          <Button>Explore</Button>
+        </ButtonContainer>
+      </Column>
+      <Column isSize={6}>
+        {
+            cluster.map(val => (
+              <div key={val}>
+                <span style={{minWidth: '2rem', display: 'inline-block', textAlign: 'right'}}>×</span>
+                <span style={{minWidth: '2rem', display: 'inline-block', textAlign: 'right'}}>{parseInt(Math.random() * 20 + 1, 10)}</span>
+                <span style={{paddingLeft: '1rem'}}>{val}</span>
+              </div>
+            ))
+          }
+        <div style={{paddingLeft: '5rem'}}>
+          <input className="input" value={cluster[0]} style={{padding: '0', fontSize: '.5rem'}} />
+        </div>
+      </Column>
+      {/* <Column isSize={7}>
+          {
+            cluster.map(val => <div key={val}>{val}</div>)
+          }
+          <div>
+            <input className="input" value={cluster[0]} />
+          </div>
+        </Column> */}
+    </Columns>
+  </Level>
+);
+const clusters = [];
+for (let i = 0; i < 100; i++) {
+  clusters.push(['ELSEVIER', 'Elsevier', 'Elesvier']);
+}
 
 export default () => (
   <LayoutWrapper hasConfig>
@@ -87,7 +134,11 @@ export default () => (
           </ButtonContainer>
         </LayoutContentColumn>
         <LayoutContentColumn isWorkspace>
-          Todo workspace
+          {
+            clusters.map((cluster, clusterIndex) => (
+              <ClusterCard key={clusterIndex} cluster={cluster} />
+            ))
+          }
         </LayoutContentColumn>
       </LayoutContent>
       <LayoutFooter>

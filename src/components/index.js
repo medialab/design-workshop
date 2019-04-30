@@ -1,6 +1,6 @@
 export {
-  // Columns,
-  // Column,
+  Columns,
+  Column,
   Tile,
 
   // Box,
