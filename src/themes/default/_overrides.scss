@@ -177,8 +177,37 @@
   position: relative;
 }
 
+.delete-el {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $red;
+  }
+}
+
 .button-container {
   margin-bottom: $gutter-small;
+}
+
+.input {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  padding-left: $gutter-small;
+  font-size: $size-8;
+}
+
+// baseline finetuning
+.layout-content-column.is-config .field:first-of-type {
+  padding-top: $size-8;
 }
 
 .label {

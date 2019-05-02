@@ -6,7 +6,7 @@ export {
   // Box,
   // Button,
   Content,
-  Delete,
+  // Delete,
   // Icon,
   // Image,
   Notification,
@@ -167,3 +167,5 @@ export {default as AccordionElement} from './AccordionElement';
 
 export {default as ButtonsRow} from './ButtonsRow';
 export {default as AccordionContainer} from './AccordionContainer';
+
+export {default as Delete} from './Delete';

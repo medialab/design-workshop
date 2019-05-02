@@ -4,6 +4,7 @@ import {
     LayoutWrapper,
     LayoutContainer,
     LayoutFooter,
+    Delete,
     LayoutFooterColumn,
     Content,
     LayoutContent,
@@ -19,16 +20,13 @@ import {
     AccordionContainer,
     ButtonContainer,
     AccordionElement,
-    Level,
-    Columns,
-    Column
 } from '../../../src/components';
 
 
 const ClusterCard = ({cluster}) => (
-  <Level>
-    <Columns>
-      <Column isSize={6}>
+  <div style={{marginBottom: '2rem', padding: '1rem', paddingTop: 0, paddingLeft: '.5rem'}}>
+    <div style={{width: '100%', display: 'flex', flexFlow: 'row nowrap'}}>
+      <div style={{width: '30%', minWidth: '11rem'}}>
         <ButtonContainer>
           <Button isColor="primary">Harmonize</Button>
         </ButtonContainer>
@@ -38,21 +36,48 @@ const ClusterCard = ({cluster}) => (
         <ButtonContainer>
           <Button>Explore</Button>
         </ButtonContainer>
-      </Column>
-      <Column isSize={6}>
+      </div>
+      <div style={{width: '70%', paddingTop: '.5rem', maxWidth: 'calc(100% - 11rem)'}}>
         {
             cluster.map(val => (
-              <div key={val}>
-                <span style={{minWidth: '2rem', display: 'inline-block', textAlign: 'right'}}>×</span>
-                <span style={{minWidth: '2rem', display: 'inline-block', textAlign: 'right'}}>{parseInt(Math.random() * 20 + 1, 10)}</span>
-                <span style={{paddingLeft: '1rem'}}>{val}</span>
+              <div
+                style={{
+                display: 'flex',
+                flexFlow: 'row nowrap',
+                fontFamily: 'monospace',
+                fontSize: '0.77rem',
+                borderBottom: '1px solid #dbdbdb',
+              }}
+                key={val}>
+                <span style={{
+                  maxWidth: '3rem',
+                  minWidth: '3rem',
+                  display: 'flex',
+                  flexFlow: 'row nowrap'
+                }}>
+                  <Delete />
+                  <span style={{
+                    minWidth: '2rem',
+                    display: 'inline-block',
+                    textAlign: 'right',
+                  }}>
+                    <b>{parseInt(Math.random() * 20 + 1, 10)}</b>
+                  </span>
+                </span>
+                <span style={{
+                  display: 'inline-block',
+                  marginLeft: '.5rem',
+                  paddingLeft: '.5rem',
+                  background: 'white',
+                  flex: 1,
+                }}>{val}</span>
               </div>
             ))
           }
-        <div style={{paddingLeft: '5rem'}}>
-          <input className="input" value={cluster[0]} style={{padding: '0', fontSize: '.5rem'}} />
+        <div style={{paddingLeft: '3.5rem', paddingTop: '.5rem', boxSizing: 'border-box'}}>
+          <input style={{width: '100%'}} className="input" value={cluster[0]} />
         </div>
-      </Column>
+      </div>
       {/* <Column isSize={7}>
           {
             cluster.map(val => <div key={val}>{val}</div>)
@@ -61,8 +86,8 @@ const ClusterCard = ({cluster}) => (
             <input className="input" value={cluster[0]} />
           </div>
         </Column> */}
-    </Columns>
-  </Level>
+    </div>
+  </div>
 );
 const clusters = [];
 for (let i = 0; i < 100; i++) {
@@ -78,7 +103,7 @@ export default () => (
     <LayoutContainer>
       <LayoutContent>
         <LayoutContentColumn isConfig>
-          <Field>
+          <Field >
             <Label>
                     Order by
             </Label>

@@ -3,6 +3,18 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Columns", {
+  enumerable: true,
+  get: function get() {
+    return _bloomer.Columns;
+  }
+});
+Object.defineProperty(exports, "Column", {
+  enumerable: true,
+  get: function get() {
+    return _bloomer.Column;
+  }
+});
 Object.defineProperty(exports, "Tile", {
   enumerable: true,
   get: function get() {
