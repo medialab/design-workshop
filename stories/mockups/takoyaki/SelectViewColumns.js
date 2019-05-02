@@ -59,8 +59,8 @@ export default () => (
             </Label>
             <Control>
               <ButtonsRow>
-                <Button isColor={'info'} >Table</Button>
-                <Button>Unique values</Button>
+                <Button >Table</Button>
+                <Button isColor={'info'}>Unique values</Button>
               </ButtonsRow>
             </Control>
           </Field>

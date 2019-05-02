@@ -6439,7 +6439,8 @@ label.panel-block {
     flex-flow: row nowrap;
     width: auto; }
   .action-table .action-table-header {
-    top: 0; }
+    top: 0;
+    padding-top: 0.25667rem; }
     .action-table .action-table-header .table-cell {
       color: #363636;
       border: 1px solid #dbdbdb;
@@ -6559,6 +6560,30 @@ label.panel-block {
     min-width: unset;
     max-height: unset;
     flex: 1; }
+
+td {
+  font-family: monospace;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0.25rem;
+  box-sizing: border-box; }
+
+.action-card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  background: white; }
+
+.action-card-header {
+  font-size: 0.77rem;
+  padding-top: 0.25667rem; }
+  .action-card-header td {
+    border-bottom: 2px solid #dbdbdb; }
+
+.action-card-body {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 0.77rem;
+  padding-right: 0.25rem; }
 
 .accordion-container {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); }
