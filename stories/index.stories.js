@@ -24,7 +24,8 @@ import {
  */
 import {
   Landing,
-  SelectView,
+  SelectViewTable,
+  SelectViewColumns,
   ClusterView,
 } from './mockups/takoyaki';
 
@@ -39,5 +40,6 @@ storiesOf('Layouts', module)
 
 storiesOf('Mockups/Takoyaki', module)
   .add('Landing', () => (<Landing />))
-  .add('Select view', () => (<SelectView />))
+  .add('Select view (table)', () => (<SelectViewTable />))
+  .add('Select view (columns)', () => (<SelectViewColumns />))
   .add('Cluster view', () => (<ClusterView />));

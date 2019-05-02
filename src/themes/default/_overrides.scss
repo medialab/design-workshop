@@ -60,6 +60,7 @@
 
   .action-table-header {
     top: 0;
+    padding-top: $size-7bis/3;
 
     .table-cell {
       color: #363636;
@@ -228,6 +229,39 @@
     flex: 1;
   }
 }
+
+td {
+  font-family: monospace;
+  border-bottom: 1px solid #dbdbdb;
+  padding: $gutter-small;
+  box-sizing: border-box;
+}
+
+.action-card {
+  @include flex(column, stretch);
+
+  background: white;
+}
+
+.action-card-header {
+  font-size: $size-7bis;
+  padding-top: $size-7bis/3;
+
+  td {
+    border-bottom: 2px solid #dbdbdb;
+  }
+}
+
+.action-card-body {
+  flex: 1;
+  overflow-y: auto;
+  font-size: $size-7bis;
+  padding-right: $gutter-small;
+}
+
+// .action-card-footer{
+
+// }
 
 .accordion-container {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);

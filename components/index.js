@@ -27,12 +27,6 @@ Object.defineProperty(exports, "Content", {
     return _bloomer.Content;
   }
 });
-Object.defineProperty(exports, "Delete", {
-  enumerable: true,
-  get: function get() {
-    return _bloomer.Delete;
-  }
-});
 Object.defineProperty(exports, "Notification", {
   enumerable: true,
   get: function get() {
@@ -765,6 +759,12 @@ Object.defineProperty(exports, "AccordionContainer", {
     return _AccordionContainer["default"];
   }
 });
+Object.defineProperty(exports, "Delete", {
+  enumerable: true,
+  get: function get() {
+    return _Delete["default"];
+  }
+});
 
 var _bloomer = require("bloomer");
 
@@ -821,5 +821,7 @@ var _AccordionElement = _interopRequireDefault(require("./AccordionElement"));
 var _ButtonsRow = _interopRequireDefault(require("./ButtonsRow"));
 
 var _AccordionContainer = _interopRequireDefault(require("./AccordionContainer"));
+
+var _Delete = _interopRequireDefault(require("./Delete"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
