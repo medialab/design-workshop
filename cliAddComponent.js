@@ -19,7 +19,7 @@ const ${componentName} = ({
     style = {},
     children
 }) => (
-    <div style={style} className={\`${camelToClassName(componentName)} \${className}}\`}>
+    <div style={style} className={\`${camelToClassName(componentName)} \${className}\`}>
         {children}
     </div>
 );
