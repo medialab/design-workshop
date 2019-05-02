@@ -10,6 +10,8 @@
     "lint:code:fix": "eslint --fix src;eslint --fix stories",
     "lint:style": "stylelint src",
     "lint:style:fix": "stylelint src --fix",
+    "lint": "npm run lint:code; npm run lint:style",
+    "lint:fix": "npm run lint:code:fix;npm run lint:style:fix;",
     "build": "babel src/components --out-dir components;node build-themes",
     "prepublish": "npm run build",
     "storybook": "start-storybook -p 6006",
