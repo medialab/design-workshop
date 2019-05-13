@@ -188,6 +188,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  color: $black;
 
   &:hover {
     color: $red;
@@ -577,5 +578,16 @@ td {
         order: 2;
       }
     }
+  }
+}
+
+.collapsable {
+  max-height: 100vh;
+  transition: all 500ms ease;
+  overflow: hidden;
+
+  &.is-collapsed {
+    max-height: 0;
+    padding: 0;
   }
 }

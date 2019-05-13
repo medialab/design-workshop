@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {storiesOf} from '@storybook/react';
 import Md from 'react-markdown';
 
 import theme from '../src/themes/default/bulma.theme.scss';/* eslint no-unused-vars : 0*/
 
+import lorem from 'fast-lorem-ipsum';
+
 /*
  * Components
  */
 import {
+
+  AccordionContainer,
+  AccordionElement,
+  ActionableTable,
+  ActionCard,
+
+  ButtonsRow,
+  ColorPicker,
+
+  Collapsable,
+  CodeEditor,
+
   Columns,
   Column,
   // Tile,
@@ -54,6 +68,10 @@ import {
   CardFooterItem,
 
 
+  DropZone,
+
+  Dropdown,
+
   DropdownContent,
   DropdownDivider,
   DropdownItem,
@@ -84,6 +102,8 @@ import {
   Message,
   MessageHeader,
   MessageBody,
+
+  HelpPin,
 
 
   Modal,
@@ -199,13 +219,13 @@ storiesOf('Components/Bulma & bloomer inherited components/Notification', module
   storiesOf('Components/Bulma & bloomer inherited components/Subtitle', module)
     .add('Default', () =>
       (<div style={{width: '20rem'}}>
-        <Subtitle>Default title</Subtitle>
-        <Subtitle isSize={1}>Title size 1</Subtitle>
-        <Subtitle isSize={2}>Title size 2</Subtitle>
-        <Subtitle isSize={3}>Title size 3</Subtitle>
-        <Subtitle isSize={4}>Title size 4</Subtitle>
-        <Subtitle isSize={5}>Title size 5</Subtitle>
-        <Subtitle isSize={6}>Title size 6</Subtitle>
+        <Subtitle>Default subtitle</Subtitle>
+        <Subtitle isSize={1}>Subtitle size 1</Subtitle>
+        <Subtitle isSize={2}>Subtitle size 2</Subtitle>
+        <Subtitle isSize={3}>Subtitle size 3</Subtitle>
+        <Subtitle isSize={4}>Subtitle size 4</Subtitle>
+        <Subtitle isSize={5}>Subtitle size 5</Subtitle>
+        <Subtitle isSize={6}>Subtitle size 6</Subtitle>
       </div>)
     );
 
@@ -229,7 +249,7 @@ storiesOf('Components/Bulma & bloomer inherited components/Modal', module)
           <Modal isActive>
             <ModalBackground />
             <ModalContent>
-              <Card />
+              <Card title="Modal title" bodyContent="Modal content" />
             </ModalContent>
             <ModalClose />
           </Modal>
@@ -392,6 +412,148 @@ storiesOf('Components/Bulma & bloomer inherited components/Pannel', module)
           </Panel>
         ));
 
+storiesOf('Components/Library custom components/Accordion', module)
+          .add('Overview', () => {
+            return (
+              <AccordionContainer>
+                <AccordionElement title="Element 1">
+                Content
+                </AccordionElement>
+                <AccordionElement title="Element 2">
+                Content
+                </AccordionElement>
+                <AccordionElement isSelected title="Element 3 selected">
+                Content
+                </AccordionElement>
+              </AccordionContainer>
+            );
+          });
+
+storiesOf('Components/Library custom components/ActionableTable', module)
+          .add('Overview', () => {
+            const columnsNames = ['Publisher', 'Journal title', 'Article title', 'Cost', 'Author', 'Year'];
+
+            const createMockData = (rowsNumber = 200) => {
+              const output = [];
+              for (let i = 0; i < rowsNumber; i++) {
+                const row = columnsNames.reduce((res, columnName) => {
+                  const base = lorem(200, 'w').split(' ');
+                  const length = parseInt(Math.random() * 7 + 2, 10);
+                  const from = parseInt(Math.random() * (100 - length), 10);
+                  const to = from + length;
+                  const value = base.slice(from, to).join(' ');
+                  return {
+                    ...res,
+                    [columnName]: value
+                  };
+                }, {});
+                output.push(row);
+              }
+              return output;
+            };
+            return (
+              <ActionableTable
+                onColumnAction={column => console.log('on click', column)/* eslint no-console: 0 */}
+                values={createMockData()}
+                columnNames={columnsNames}
+                actionMessage={'action !'} />
+            );
+          });
+storiesOf('Components/Library custom components/ActionCard', module)
+          .add('Overview', () => (<ActionCard>Action !</ActionCard>));
+
+const BtnRow = () => {
+  const [activeBtn, setActiveBtn] = useState(1);
+  return (
+    <ButtonsRow>
+      <Button onClick={() => setActiveBtn(1)} isColor={activeBtn === 1 ? 'primary' : undefined}>1</Button>
+      <Button onClick={() => setActiveBtn(2)} isColor={activeBtn === 2 ? 'primary' : undefined}>2</Button>
+      <Button onClick={() => setActiveBtn(3)} isColor={activeBtn === 3 ? 'primary' : undefined}>3</Button>
+    </ButtonsRow>
+  );
+};
+storiesOf('Components/Library custom components/ButtonsRow', module)
+          .add('Overview', () => <BtnRow />);
+
+storiesOf('Components/Library custom components/Card', module)
+  .add('Example', () => (
+    <Card
+      title={'Title'}
+      subtitle={'Subtitle'}
+      bodyContent={'Nice body content'}
+      // footerActions = {[{label: 'Action 1', id : 1}, {label: 'Action 2', id: 2}]}
+      asideActions={[{label: 'Action 1', id: 1, isColor: 'primary'}, {label: 'Action 2', id: 2}]} />
+  ));
+
+const CodeExample = () => {
+  const [value, setValue] = useState('');
+  return (
+    <div>
+      <CodeEditor
+        value={value}
+        onChange={setValue} />
+    </div>
+  );
+};
+storiesOf('Components/Library custom components/CodeEditor', module)
+  .add('Example', () => <CodeExample />);
+
+const CollapsableExample = () => {
+  const [active, setActive] = useState(1);
+  return (
+    <div>
+      <Collapsable isCollapsed={active !== 1}>
+        Item 1 <Button onClick={() => setActive(2)} >Click to collapse</Button>
+      </Collapsable>
+      <Collapsable isCollapsed={active !== 2}>
+        Item 2 <Button onClick={() => setActive(1)} >Click to collapse</Button>
+      </Collapsable>
+    </div>
+  );
+};
+storiesOf('Components/Library custom components/Collapsable', module)
+  .add('Example', () => <CollapsableExample />);
+
+const ColorPickerTest = () => {
+  const [color, setColor] = useState('red');
+  return (
+    <ColorPicker
+      color={color}
+      onChange={c => setColor(c)} />
+  );
+};
+storiesOf('Components/Library custom components/ColorPicker', module)
+  .add('Default', () => <ColorPickerTest />);
+
+const DropDownTest = () => {
+  const [isActive, setIsActive] = useState(false);
+  const [value, setValue] = useState(1);
+  const options = [{label: 'Option 1', id: 1}, {label: 'Option 2', id: 2}];
+  return (
+    <Dropdown
+      onToggle={() => setIsActive(!isActive)}
+      isActive={isActive}
+      closeOnChange
+      value={value}
+      onChange={v => setValue(v)}
+      options={options}>
+      {options.find(o => o.id === value).label}
+    </Dropdown>
+  );
+};
+storiesOf('Components/Library custom components/Dropdown', module)
+  .add('Example', () => <DropDownTest />
+);
+
+storiesOf('Components/Library custom components/DropZone', module)
+  .add('default', () => <DropZone>Drop some stuff in here</DropZone>);
+
+storiesOf('Components/Library custom components/HelpPin', module)
+  .add('Example', () => (
+    <div>
+      Here is a text needing some explanation<HelpPin>Here is the explanation</HelpPin>
+    </div>
+  ));
 
   /*
 
