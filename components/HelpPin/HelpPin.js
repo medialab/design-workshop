@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _index = require("../index");
+var _bloomer = require("bloomer");
 
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 
@@ -37,7 +37,7 @@ var HelpPin = function HelpPin(_ref) {
     "data-type": type,
     "data-place": place,
     "data-effect": effect
-  }, _react["default"].createElement(_index.Icon, null, _react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
+  }, _react["default"].createElement(_bloomer.Icon, null, _react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
     icon: _faQuestionCircle.faQuestionCircle
   })), _react["default"].createElement(_reactTooltip["default"], {
     id: "help-tooltip"

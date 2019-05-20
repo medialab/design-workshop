@@ -6529,7 +6529,8 @@ label.panel-block {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  color: #0a0a0a; }
   .delete-el:hover {
     color: #f7323f; }
 
@@ -6780,3 +6781,11 @@ td {
       text-align: left; }
     .layout-wrapper.has-config .layout-footer .layout-footer-column.is-secondary {
       order: 2; } }
+
+.collapsable {
+  max-height: 100vh;
+  transition: all 500ms ease;
+  overflow: hidden; }
+  .collapsable.is-collapsed {
+    max-height: 0;
+    padding: 0; }
