@@ -23,6 +23,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
  */
 var DropZone = function DropZone(_ref) {
   var onDrop = _ref.onDrop,
+      onDropRejected = _ref.onDropRejected,
       children = _ref.children,
       accept = _ref.accept,
       maxSize = _ref.maxSize,
@@ -33,6 +34,7 @@ var DropZone = function DropZone(_ref) {
     activeClassName: "active",
     accept: accept,
     maxSize: maxSize,
+    onDropRejected: onDropRejected,
     onDrop: onDrop
   }, function (_ref2) {
     var getRootProps = _ref2.getRootProps,

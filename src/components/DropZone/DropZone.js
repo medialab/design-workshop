@@ -12,6 +12,7 @@ import BackgroundGenerator from '../BackgroundGenerator';
  */
 const DropZone = ({
   onDrop,
+  onDropRejected,
   children,
   accept,
   maxSize,
@@ -22,6 +23,7 @@ const DropZone = ({
     activeClassName="active"
     accept={accept}
     maxSize={maxSize}
+    onDropRejected={onDropRejected}
     onDrop={onDrop}>
     {({getRootProps, getInputProps}) => (
       <section className={`drop-zone is-size-${isSize}`}>
